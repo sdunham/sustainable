@@ -1,0 +1,185 @@
+#testimonials {
+  padding: 50px 0;
+  text-align: center;
+  background: @color1;
+  position: relative;
+
+    h3.title {
+      color: #252525;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: @font-family-opensans;
+    }//.title
+
+    .container {
+      position: relative;
+
+        &:before, &:after {
+          top: 0;
+          z-index: 50;
+          content: "";
+          width: 150px;
+          height: 100%;
+          display: block;
+          position: absolute;
+        }//:before, :after
+
+        &:before {
+          left: 0;
+          background: url(img/testimonial-left-gradient.png) 0 0 repeat-y;
+          background-size: 100% auto;
+        }//:before
+
+        &:after {
+          right: 0;
+          background: url(img/testimonial-right-gradient.png) 0 0 repeat-y;
+          background-size: 100% auto;
+        }//:after
+
+        @media @testinonial-break {
+          padding: 0 60px;
+
+            &:before {
+              left: 40px;
+            }
+
+            &:after {
+              right: 40px;
+            }
+        }//@media
+    }//.container
+
+    .flexslider {
+      padding: 20px 0;
+
+        .slides{
+          margin: 0;
+          .plain-list;
+
+            .testimonial {
+              max-width: 720px;
+              margin: 0 auto 25px;
+            }//.testimonial
+
+            a, span {
+              font-size: 15px;
+              font-weight: 600;
+              color: @text-color;
+              letter-spacing: 1px;
+              display: inline-block;
+              text-transform: uppercase;
+              font-family: @font-family-opensans;
+
+                &:hover { color: #355a0c; text-decoration: none; }
+            }//a
+
+            span {
+               color: @white;
+
+                &:hover { color: @white; }
+            }//span
+        }//.slides
+
+        .flex-direction-nav {
+          margin: 0;
+          .plain-list;
+
+            li {
+              top: 50%;
+              width: 15px;
+              height: 20px;
+              z-index: 100;
+              overflow: hidden;
+              text-indent: 100%;
+              margin-top: -10px;
+              position: absolute;
+              white-space: nowrap;
+
+                a {
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  position: relative;
+                  background: url(img/ico-carousel-carets@2x.png) 1px 0 no-repeat;
+                  background-size: 32px 40px;
+
+                    &:after {
+                      top: 0;
+                      left: 0;
+                      .opacity(0);
+                      content: "";
+                      width: 100%;
+                      height: 100%;
+                      display: block;
+                      position: absolute;
+                      .transition(all .25s ease);
+                      background: url(img/ico-carousel-carets@2x.png) 1px -21px no-repeat;
+                      background-size: 32px 40px;
+                    }//:after
+
+                    &:hover {
+                      &:after { .opacity(1); }
+                    }//:hover
+                }//a
+
+                &.flex-nav-prev { left: 75px; }//.flex-nav-prev
+
+                &.flex-nav-next {
+                  right: 75px;
+
+                    a {
+                      background-position: -18px 0px;
+
+                        &:after {
+                          background-position: -18px -21px;
+                        }//:after
+                    }//a
+                }//.flex-nav-next
+
+              @media @testinonial-break {
+                &.flex-nav-prev { left: 20px; }
+                &.flex-nav-next { right: 20px; }
+              }//@media
+            }//li
+        }//.flex-direction-nav
+    }//.flexslider
+
+  @media @tablet, @mobile-lg, @mobile {
+    .container {
+      padding: 0;
+
+        &:before { left: 0; }//:before
+        &:after { right: 0; }//:after
+
+        .flexslider {
+          .slides {
+            .testimonial {
+              padding: 0 60px;
+            }//.testimonial
+          }//.slides
+        }//.flexslider
+    }//.container
+  }//@mobile
+
+  @media @mobile-lg, @mobile {
+    padding: 50px 0 30px;
+
+    .container {
+
+      &:before,
+      &:after { display: none; }
+    }//.container
+    .flexslider {
+        .slides {
+          li {
+            span {
+              display: block;
+
+                &.pipe { display: none; }
+            }//span
+          }//li
+        }//.slides
+      .flex-direction-nav { display: none; }
+    }//.flexslider
+  }//mobile
+}//#testimonials

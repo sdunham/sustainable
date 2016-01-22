@@ -1,0 +1,123 @@
+.modal-grid {
+  padding: 50px 0;
+  background: @white;
+
+    .container {
+      .clearfix;
+      padding: 0;
+      max-width: 1210px;
+    }//.container
+
+    .modal-block {
+      width: 50%;
+      float: left;
+      padding: 0 25px;
+      min-height: 300px;
+      position: relative;
+      margin-bottom: 20px;
+
+      a {
+        left: 25px;
+        right: 25px;
+        display: block;
+        color: @text-color;
+
+          .post-title { color: @text-color; }
+          .post-meta { color: #464646; }//.post-meta
+
+            &:hover { text-decoration: none; }
+      }//a
+
+      .image-container {
+        height: 275px;
+        overflow: hidden;
+        position: relative;
+
+          .image {
+            width: 100%;
+            height: 100%;
+            .transform(scale(1.1) rotate(0.001deg));
+            .transition(.25s ease);
+
+              &:after {
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 200;
+                content: "";
+                position: absolute;
+                .transition(.5s ease);
+                background: rgba(54, 54, 54, .7);
+              }//:after
+          }//.image
+      }//.image-container
+
+      .details {
+        padding: 20px 0;
+
+          h3.post-title {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 5px;
+          }//h2
+
+          .post-meta, .post-location {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-family: @font-family-opensans;
+          }//.post-meta
+
+          .post-location {
+            color: #598c6e;
+            text-transform: uppercase;
+          }//.post-location
+
+          .excerpt { line-height: 160%; }
+      }//.details
+
+
+      &:hover {
+        .image-container {
+          .image {
+            .transform(scale(2));
+            .transition(45s linear);
+
+                &:after {
+                  .opacity(0);
+                }//:after
+          }//.image
+        }//.image
+        .details {
+          .fancy {
+            color: #355a0c;
+            text-decoration: none;
+
+              &:after {
+                .opacity(1);
+              }//:after
+          }//.fancy
+        }//.details
+      }//:hover
+    }//.modal-block
+
+  @media @mobile-lg, @mobile {
+    .modal-block {
+      float: none;
+      width: 100%;
+      min-height: auto;
+
+        .image-container {
+          height: auto;
+          max-height: 250px;
+
+            .image {
+              height: auto;
+              padding-top: 50%;
+            }//.image
+        }//.image-conainer
+    }//.modal-block
+  }//@media
+}//.modal-grid

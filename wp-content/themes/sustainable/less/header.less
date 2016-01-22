@@ -1,0 +1,141 @@
+//--------------------
+// HEADER STYLES
+//--------------------
+
+header.site-header {
+	top: 0;
+	width: 100%;
+	height: 85px;
+	padding: 15px 0;
+	position: fixed;
+	background: @header-color;
+
+	z-index: (@zindex-base + 1);
+
+	.container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.site-branding {
+		flex: 1 auto;
+
+		a {
+			width: 260px;
+			height: 52px;
+			display: block;
+			overflow: hidden;
+			text-indent: 100%;
+			white-space: nowrap;
+			background: url(img/logo@2x.png) 0 0 no-repeat;
+			background-size: 260px 52px;
+		}//a
+	}//.site-branding
+
+	.header-btns {
+		flex: 2 auto;
+		margin: 6px 5px;
+		text-align: right;
+
+			.contact-btn {
+				float: right;
+				margin-right: 0;
+			}//.contact-btn
+
+			.menu-btn{
+				display: none;
+				cursor: pointer;
+
+				.toggle{
+					width: 24px;
+					float: right;
+			    height: 15px;
+			    margin: 3px 0 0 12px;
+
+					> span{
+						width: 100%;
+						height: 2px;
+						display: block;
+						margin-bottom: 4px;
+						background: @white;
+						.transition(all @trans-speed ease);
+					}
+				}
+
+				> span{
+					//menu text
+					float: left;
+					color: @white;
+					display: block;
+					text-transform: uppercase;
+				}//span
+
+				&.active{
+					.toggle{
+						.rotate(-45deg);
+
+						span{
+							&.l1{ .translateY(6px); }
+							&.l2{ .opacity(0); }
+							&.l3{ .transform(rotate(-90deg) translateX(6px)); }
+						}
+					}
+				}
+
+
+				&:hover{ text-decoration: none; }
+			}//end .menu-btn
+	}//.header-btns
+
+
+
+	@media @tablet, @mobile-lg, @mobile{
+		position: relative;
+
+			.container { display: block; }
+
+			.site-branding, .main-navigation { flex: 0;	 }
+
+			.site-branding { float: left; }
+
+			.header-btns {
+				flex: 0;
+				z-index: 605;
+				float: right;
+				margin-right: 0;
+				position: relative;
+
+					.contact-btn { float: none; }
+					.menu-btn {
+						margin-left: 15px;
+						display: inline-block;
+						vertical-align: middle;
+					}//.menu-btn
+			}//.header-btns
+
+			.main-navigation {
+				position: absolute;
+			}//.main-navigation
+	}//@device
+
+	@media @mobile-lg, @mobile {
+		height: auto;
+
+			.site-branding {
+				float: none;
+
+					a {
+						margin: 0 auto;
+						margin-bottom: 20px;
+					}//a
+			}//.site-branding
+
+			.header-btns {
+				float: none;
+				margin: 0 auto;
+				text-align: center;
+			}//.header-btns
+	}//@mobile
+
+}//end header.site-header

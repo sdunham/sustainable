@@ -1,0 +1,151 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<div id="primary" class="content-area">
+	<main id="main" class="site-main" role="main">
+		<article id="hero">
+			<div class="flexslider">
+			  <ul class="slides">
+
+			    <li style="background: url({{fn('get_stylesheet_directory_uri')}}/img/hero-1.jpg) center center no-repeat; background-size: cover;">
+						<div class="container">
+							<div class="caption">
+								<span class="main-headline">How can we benefit you?</span>
+								<span class="sub-headline">Our certifications include: 8(a), Small Business, Veteran-owned, Minortiy-owned, and Woman-Owned.</span>
+								<a href="#" class="btn lg">Learn More</a>
+							</div><!-- .caption -->
+						</div><!-- .container -->
+			    </li>
+
+					<li style="background: url({{fn('get_stylesheet_directory_uri')}}/img/hero-2.jpg) center center no-repeat; background-size: cover;">
+						<div class="container">
+							<div class="caption">
+								<span class="main-headline">Sustainable Hope</span>
+								<span class="sub-headline">We believe giving back is good stewardship. Thats why 10% of our profits go directly to local and foreign non-profits.</span>
+								<a href="#" class="btn lg">Learn More</a>
+							</div><!-- .caption -->
+						</div><!-- .container -->
+			    </li>
+
+					<li style="background: url({{fn('get_stylesheet_directory_uri')}}/img/hero-1.jpg) center center no-repeat; background-size: cover;">
+						<div class="container">
+							<div class="caption">
+								<span class="main-headline">Lorem ipsum dolor sit</span>
+								<span class="sub-headline">Phasellus auctor leo ut mi commodo tincidunt. Phasellus efficitur leo a dictum tristique.</span>
+								<a href="#" class="btn lg">Learn More</a>
+							</div><!-- .caption -->
+						</div><!-- .container -->
+			    </li>
+
+					<li style="background: url({{fn('get_stylesheet_directory_uri')}}/img/hero-2.jpg) center center no-repeat; background-size: cover;">
+						<div class="container">
+							<div class="caption">
+								<span class="main-headline">Maecenas malesuada sceler</span>
+								<span class="sub-headline">Praesent imperdiet est luctus, posuere enim non, consectetur nisl. Ut auctor, ligula ut porta auctor.</span>
+								<a href="#" class="btn lg">Learn More</a>
+							</div><!-- .caption -->
+						</div><!-- .container -->
+			    </li>
+			  </ul><!-- .slides -->
+			</div><!-- .flexslider -->
+		</article><!-- #hero -->
+
+		<article id="company-information">
+			<div class="container">
+				<h1>Who we are</h1>
+				<p class="description">Sustainable Interiors is an interior finishes contractor.  We specialize in delivering solutions for government contracts, commercial projects, healthcare renovations, and large general contractor jobs on the West Coast.</p>
+
+				<div class="grid grid-pad grid-pull">
+
+					<div class="col-1-3">
+						<img src="{{fn('get_stylesheet_directory_uri')}}/img/ico-flag@2x.png" style="width: 36px; height: 44px;">
+						<h3 class="title">Set-asides</h3>
+						<p class="desc">Our certifications include: 8(a), Small Business, Veteran-owned, Minority-owned, and Woman-Owned...</p>
+						<a href="#" class="fancy">More Info</a>
+					</div><!-- .col-1-3 -->
+
+					<div class="col-1-3">
+						<img src="{{fn('get_stylesheet_directory_uri')}}/img/ico-team@2x.png" style="width: 54px; height: 44px;">
+						<h3 class="title">Our Team</h3>
+						<p class="desc">We pride ourselves in hiring the right people and having those right individuals in the right positions. </p>
+						<a href="#" class="fancy">More Info</a>
+					</div><!-- .col-1-3 -->
+
+					<div class="col-1-3">
+						<img src="{{fn('get_stylesheet_directory_uri')}}/img/ico-book@2x.png" style="width: 36px; height: 44px;">
+						<h3 class="title">Contact Us</h3>
+						<p class="desc">009 Pacific Hwy E, Suite 7 Fife, WA 98424<br>info@sustainableint.com<br>(800) 261-9930</p>
+						<a href="#" class="fancy">More Info</a>
+					</div><!-- .col-1-3 -->
+				</div><!-- .grid -->
+				<a href="#" class="btn lg dark solid">Learn More</a>
+			</div><!-- .container -->
+		</article><!-- #company-information -->
+
+		<article id="post-grid">
+			<div class="post-block">
+				<a href="#">
+					<div class="image-container">
+						<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/block-img-1.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
+					</div><!-- .image-container -->
+
+					<div class="details">
+						<h2 class="post-title">New Award in San Francisco</h2><!-- .post-title -->
+						<span class="post-meta">December 23, 2015</span><!-- .post-meta -->
+						<p class="excerpt">Sustainable Floors' most recent award in San Francisco, CA is Alta Laguna with Wood Partners. We are finishing our first San Francisco project with Wood Partners now and expect to begin work on Alta... </p>
+						<span href="#" class="fancy">Read More</span>
+					</div><!-- .details -->
+				</a>
+			</div><!-- .post-block -->
+			<div class="post-block">
+				<a href="#">
+					<div class="image-container">
+						<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/block-img-2.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
+					</div><!-- .image-container -->
+
+					<div class="details">
+						<h2 class="post-title">New Award in San Francisco</h2><!-- .post-title -->
+						<span class="post-meta">December 23, 2015</span><!-- .post-meta -->
+						<p class="excerpt">Sustainable Floors' most recent award in San Francisco, CA is Alta Laguna with Wood Partners. We are finishing our first San Francisco project with Wood Partners now and expect to begin work on Alta... </p>
+						<span href="#" class="fancy">Read More</span>
+					</div><!-- .details -->
+				</a>
+			</div><!-- .post-block -->
+		</article><!-- #post-grid -->
+
+		<article id="testimonials">
+			<div class="container">
+				<h3 class="title">Testimonials</h3>
+
+				<div class="flexslider">
+				  <ul class="slides">
+				    <li>
+				      <p class="testimonial">“There’s nobody I’d rather have on my jobs than Colin and the Sustainable team. They always knock it out of the park for us. Sed vitae tellus iaculis, sodales nisi ut, lacinia ex. Duis in sollicitudin ligula, eget condimentum eros. In posuere est facilisis odio tincidunt rutrum. Donec sed elementum ante. Ut eu purus magna.”</p>
+							<span>Brian Christiansen</span> <span class="pipe">|</span> <a href="#">Holand Construction</a>
+				    </li>
+				    <li>
+							<p class="testimonial">“There’s nobody I’d rather have on my jobs than Colin and the Sustainable team. They always knock it out of the park for us. Sed vitae tellus iaculis, sodales nisi ut, lacinia ex. Duis in sollicitudin ligula, eget condimentum eros. In posuere est facilisis odio tincidunt rutrum. Donec sed elementum ante. Ut eu purus magna.”</p>
+							<span>Brian Christiansen</span> <span class="pipe">|</span> <a href="#">Holand Construction</a>
+						</li>
+				    <li>
+							<p class="testimonial">“There’s nobody I’d rather have on my jobs than Colin and the Sustainable team. They always knock it out of the park for us. Sed vitae tellus iaculis, sodales nisi ut, lacinia ex. Duis in sollicitudin ligula, eget condimentum eros. In posuere est facilisis odio tincidunt rutrum. Donec sed elementum ante. Ut eu purus magna.”</p>
+							<span>Brian Christiansen</span> <span class="pipe">|</span> <a href="#">Holand Construction</a>
+						</li>
+				    <li>
+							<p class="testimonial">“There’s nobody I’d rather have on my jobs than Colin and the Sustainable team. They always knock it out of the park for us. Sed vitae tellus iaculis, sodales nisi ut, lacinia ex. Duis in sollicitudin ligula, eget condimentum eros. In posuere est facilisis odio tincidunt rutrum. Donec sed elementum ante. Ut eu purus magna.”</p>
+							<span>Brian Christiansen</span> <span class="pipe">|</span> <a href="#">Holand Construction</a>
+						</li>
+				    <!-- items mirrored twice, total of 12 -->
+				  </ul><!-- .slides -->
+
+					<!--<div class="nav-carousel">
+        	<a href="#" class="flex-prev"><span>Brian Christiansen</span></a> |
+        	<a href="#" class="flex-next"><span>Holand COnstruction</span></a>
+    		</div> -->
+				</div><!-- .flexslider -->
+			</div><!-- .container -->
+		</article><!-- #testimonials -->
+
+	</main><!-- #main -->
+</div><!-- #primary -->
+{% endblock %}

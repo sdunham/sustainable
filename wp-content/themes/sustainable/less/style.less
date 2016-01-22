@@ -1,0 +1,119 @@
+/*!	Theme Name: Sustainable Interiors
+ *	Author: Sean Dozeman, Scott Dunham, Aaron Marth
+ *	Description: Sustainable Interiors custom WordPress Theme
+ *	Version: 1.0
+ *	Text Domain: sustainable-interiors
+ */
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+// Reset
+@import "normalize.less";
+
+// Core variables and mixins
+@import "variables.less";
+@import "mixins.less";
+
+@import "global.less";
+@import "forms.less";
+@import "grid.less";
+@import "buttons.less";
+
+@import "header.less";
+@import "navigation.less";
+@import "front-page.less";
+@import "gen-interior.less";
+@import "footer.less";
+
+//WP Styles
+@import "wp-blog.less";
+@import "wp-blog-sidebar.less";
+@import "wp-comments.less";
+@import "wp-comments-form.less";
+@import "wp-pagination.less";
+
+// jQuery plugins
+@import "flexslider.less";
+@import "magnific.less";
+
+// Letter-spacing adjustments
+@import "letter-spacing.less";
+// Touch Device Support
+@import "touch.less";
+
+// Print Styles
+@import "print.less";
+
+
+.skip-link { display: none; }
+
+/***** STRUCTURE *****/
+.container{
+	.clearfix;
+	margin: 0 auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	max-width: @container-main;
+}//.container
+
+
+.site-wrapper{
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	background: #252525;
+}//.site-wrapper
+
+.site-pusher{
+	@media @tablet, @mobile-lg, @mobile{
+		left: 0;
+		height: 100%;
+		position: relative;
+		.transition(left .25s ease);
+
+		.site-header .header-btns { .transition( all .25s ease); }
+
+		.menu-open &{
+			.transition(left .66s ease);
+			left: -2.5%;
+
+					#content { .transition(all .25s ease); background: #000; }
+					.site-header { background: #2e2e2e; }
+					.site-header .site-branding,
+					.site-main, .site-footer { .transition(all .25s ease); opacity: .65; }
+
+					.site-header .header-btns { .transition(all .66s ease); margin-right: -2.6% }
+
+		}//.menu-open
+	}//end media
+
+	@media @mobile-lg, @mobile {
+		.menu-open &{
+			.transition(left .66s ease);
+			left: 0;
+
+				.site-header { background: #252525; }
+				.site-header .site-branding { opacity: 1; }
+				.site-header .header-btns { .transition(all .66s ease); margin-right: 0; }
+			}//.menu-open
+	}//@mobile
+}//.site-pusher
+
+
+#page{
+	padding-top: 85px;
+	min-height: 500px;
+
+	nav.sideNav{
+		width: 20%;
+		float: left;
+
+		+ .main-content{ width: 80%; float: right; padding-left: 30px; }
+	}
+
+
+	@media @tablet, @mobile-lg, @mobile { padding-top: 0; }
+}//end section.pag

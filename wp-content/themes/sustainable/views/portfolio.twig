@@ -1,0 +1,103 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+			<div id="hero-banner">
+				<div class="image skrollable skrollable-between" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/interior-hero-2.jpg) center center no-repeat; background-size: cover;"  data-0="top:0px; opacity: .3; transform: scale(1); )" data-260="top:250px; opacity: 0; transform: scale(1.2);"></div>
+				<div class="caption skrollable skrollable-between" data-0="top: 0px; opacity: 1;" data-260="top: 200px; opacity: 0;">
+					<div class="container">
+						<span class="main-headline page-title">Portfolio</span>
+						<span class="sub-headline">We are organized and equipped to efficiently deliver flooring services essential to the completion of any flooring project, large or small, on time and within budget.</span>
+					</div><!-- .container -->
+				</div><!-- .caption -->
+			</div><!-- #hero-banner -->
+
+
+			<article id="product-grid" class="modal-grid">
+				<div class="container">
+
+					<div class="modal-block">
+						<a href="{{fn('get_stylesheet_directory_uri')}}/ajax/portfolio_popup.html" class="slider ajax-popup-link">
+							<div class="image-container">
+								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-10.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
+							</div><!-- .image-container -->
+							<div class="details">
+								<h3 class="post-title">True North</h3><!-- .post-title -->
+								<span class="post-location">Seattle, WA</span>
+							</div><!-- .details -->
+						</a>
+					</div><!-- .modal-block -->
+
+					<div class="modal-block">
+						<a href="{{fn('get_stylesheet_directory_uri')}}/ajax/portfolio_popup.html" class="slider ajax-popup-link">
+							<div class="image-container">
+								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-11.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
+							</div><!-- .image-container -->
+							<div class="details">
+								<h3 class="post-title">The Rivet</h3><!-- .post-title -->
+								<span class="post-location">Seattle, WA</span>
+							</div><!-- .details -->
+						</a>
+					</div><!-- .modal-block -->
+
+					<div class="modal-block">
+						<a href="{{fn('get_stylesheet_directory_uri')}}/ajax/portfolio_popup.html" class="slider ajax-popup-link">
+							<div class="image-container">
+								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-1.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
+							</div><!-- .image-container -->
+							<div class="details">
+								<h3 class="post-title">Pearl District Marriot</h3><!-- .post-title -->
+								<span class="post-location">Portland, OR</span>
+							</div><!-- .details -->
+						</a>
+					</div><!-- .modal-block -->
+
+					<div class="modal-block">
+						<a href="{{fn('get_stylesheet_directory_uri')}}/ajax/portfolio_popup.html" class="slider ajax-popup-link">
+							<div class="image-container">
+								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-12.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
+							</div><!-- .image-container -->
+							<div class="details">
+								<h3 class="post-title">1200 Madison</h3><!-- .post-title -->
+								<span class="post-location">Seattle, WA</span>
+							</div><!-- .details -->
+						</a>
+					</div><!-- .modal-block -->
+
+					<div class="modal-block">
+						<a href="{{fn('get_stylesheet_directory_uri')}}/ajax/portfolio_popup.html" class="slider ajax-popup-link">
+							<div class="image-container">
+								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-13.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
+							</div><!-- .image-container -->
+							<div class="details">
+								<h3 class="post-title">Federal Center South</h3><!-- .post-title -->
+								<span class="post-location">Seattle, WA</span>
+							</div><!-- .details -->
+						</a>
+					</div><!-- .modal-block -->
+
+					<div class="modal-block">
+						<a href="{{fn('get_stylesheet_directory_uri')}}/ajax/portfolio_popup.html" class="slider ajax-popup-link">
+							<div class="image-container">
+								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-5.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
+							</div><!-- .image-container -->
+							<div class="details">
+								<h3 class="post-title">Martin Apartments</h3><!-- .post-title -->
+								<span class="post-location">Seattle, WA</span>
+							</div><!-- .details -->
+						</a>
+					</div><!-- .modal-block -->
+
+				</div><!-- .container -->
+			</article><!-- #product-grid -->
+
+			<article id="callout-block">
+				<div class="container">
+					<a href="#" class="btn dark white">Load More</a>
+				</div><!-- .container -->
+			</article><!-- #callout-block -->
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+{% endblock %}

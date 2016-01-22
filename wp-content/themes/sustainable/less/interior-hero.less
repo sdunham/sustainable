@@ -1,0 +1,65 @@
+#hero-banner {
+  height: 280px;
+  overflow: hidden;
+  position: relative;
+
+    .image {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 280px;
+      position: absolute;
+      .opacity(.3);
+    }//.image
+
+    .caption {
+      top: 0;
+      z-index: 50;
+      width: 100%;
+      height: 100%;
+      color: @white;
+      display: table;
+      position: absolute;
+      font-family: @font-family-headings;
+
+        .container {
+          height: 100%;
+          display: table-cell;
+          text-align: center;
+          vertical-align: middle;
+        }//.container
+
+          span {
+            display: block;
+
+              &.main-headline {
+                font-size: 64px;
+                text-transform: uppercase;
+              }//.main-headline
+
+              &.sub-headline {
+                margin: 0 auto;
+                font-size: 22px;
+                max-width: 810px;
+              }//.sub-headline
+          }//span
+    }//.caption
+
+  @media @tablet, @mobile-lg, @mobile {
+    .image { top: 0 !important; }
+
+    .caption {
+      top: 0 !important;
+
+      span.main-headline { font-size: 52px; }
+      span.sub-headline { font-size: 20px; }
+    }//.caption
+  }//@mobile
+
+  @media @mobile-lg, @mobile {
+    .caption {
+      span.main-headline { font-size: 40px; }//.main-headline
+      span.sub-headline { font-size: 16px }
+    }//.caption
+  }//@mobile
+}//#hero-banner

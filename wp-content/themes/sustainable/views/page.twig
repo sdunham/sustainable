@@ -1,14 +1,52 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-			<section class="article-content">
-				<h1 class="article-h1">{{post.title}}</h1>
-				<div class="article-body">
-					{{post.content}}
-				</div>
-			</section>
-		</article>
-	</div><!-- /content-wrapper -->
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+			<div id="hero-banner">
+				<div class="image skrollable skrollable-between" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/hero-1.jpg) center center no-repeat; background-size: cover;"  data-0="top:0px; opacity: .3; transform: scale(1);" data-260="top:250px; opacity: 0; transform: scale(1.2);"></div>
+				<div class="caption skrollable skrollable-between" data-0="top: 0px; opacity: 1;" data-260="top: 200px; opacity: 0;">
+					<div class="container">
+						<span class="main-headline page-title">About</span>
+						<span class="sub-headline">Our certifications include: 8(a), Small Business, Veteran-owned, <br>Minortiy-owned, and Woman-Owned.</span>
+					</div><!-- .container -->
+				</div><!-- .caption -->
+			</div><!-- #hero-banner -->
+
+
+			<article id="content-body">
+				<div class="container">
+					<div class="content flex">
+						<div class="left">
+							<h1>excellence.<br>
+								service.<br>
+								integrity.</h1>
+								<p>We provide interior solutions, including flooring and other finishes, to direct customers and general contractors. We understand administration, safety, project schedules, LEED reporting requirements, and finding the right products to meet your design intent and budget.  We also assist with sustainable initiatives and help meet set-aside goals.</p>
+						</div>
+						<div class="right">
+							<p>In 2005 Dana Pittman and Colin Higginbottom founded Sustainable Interiors. Starting on Fort Lewis, WA (now JBLM) primarily, the first ever Sustainable Interior Showroom was developed. From Fort Lewis and a Sustainable mission, we began to branch out into Oregon, California, Montana, and now Hawaii, Nevada, and Colorado.
+Most of our first projects performed were federal contracts and GSA contracts. We then began to take on large projects with general contractors, higher education contracts, and now urban development projects. Today we are experts in all of these areas.</p>
+						</div>
+					</div><!-- .content -->
+				</div><!-- .container -->
+			</article><!-- #content-body -->
+
+
+			<article id="showcase">
+				<div class="showcase-container">
+					<div class="image-container"><img src="{{fn('get_stylesheet_directory_uri')}}/img/interior-showcase-1.jpg" data-bottom-center="top: -30px" data-top-center="top: 30px;"/></div><!-- .image-container -->
+					<div class="caption skrollable skrollable-between" data-0="top: 7.5%;" data-top="top: 45%;">"At Sustainable Interiors, we embody holistic sustainability and it is a part of everything we do."</div><!-- . -->
+				</div><!-- .showcase-container -->
+			</article>
+
+			<article id="callout-block">
+				<div class="container">
+					<h2>Want to See Our Work?</h2>
+					<p>We’ve been busy, check out our portfolio to see what we’ve been up to.</p><br><br>
+					<a href="#" class="btn dark white">view portfolio</a>
+				</div><!-- .container -->
+			</article><!-- #callout-block -->
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
 {% endblock %}

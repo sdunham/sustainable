@@ -7,6 +7,125 @@
 {% endblock %}
 
 	<body class="{{body_class}}" data-template="base.twig">
+
+
+		<div class="site-wrapper">
+			<div class="site-pusher">
+				<div id="page" class="site">
+
+					{% block header %}
+					<header id="masthead" class="site-header" role="banner">
+						<div class="container">
+
+							<div class="site-branding">
+								<a href="{{ site.url }}" rel="home">{{ site.name }}</a>
+							</div><!-- .site-branding -->
+
+							<nav id="site-navigation" class="main-navigation" role="navigation">
+								{# TODO
+								<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+								#}
+								<ul id="primary-menu" class="nav">
+								{% for item in menu.get_items %}
+									<li class="nav-item {{item.classes | join(' ')}}">
+										<a class="nav-link" href="{{item.get_link}}">{{item.title}}</a>
+										{% if item.get_children %}
+											<ul class="nav nav-drop">
+											{% for child in item.get_children %}
+												<li class="nav-drop-item">
+													<a class="nav-link" href="{{child.get_link}}">{{child.title}}</a>
+												</li>
+											{% endfor %}
+											</ul>
+										{% endif %}
+									</li>
+								{% endfor %}
+								</ul>
+							</nav><!-- #site-navigation -->
+
+							<div class="header-btns">
+								{# TODO #}
+								<a class="contact-btn btn" href="{{ site.url }}">Contact</a>
+
+								<a class="menu-btn btn">
+									<div class="toggle">
+										<span class="l1"></span>
+										<span class="l2"></span>
+										<span class="l3"></span>
+									</div>
+									<span>Menu</span>
+								</a>
+
+							</div><!-- .header-btns -->
+						</div><!-- .container -->
+					</header><!-- #masthead -->
+					{% endblock %}
+
+					<div id="content" class="site-content">
+						<div id="primary" class="content-area">
+							<main id="main" class="site-main" role="main">
+
+							{% block content %}
+								Sorry, no content
+							{% endblock %}
+
+							</main><!-- #main -->
+						</div><!-- #primary -->
+					</div><!-- #content -->
+
+					<footer id="colophon" class="site-footer" role="contentinfo">
+						<div class="site-info">
+							<div class="container">
+								<div class="grid grid-pad grid-pull">
+									<div class="col-1-3">
+										<h4>Contact</h4>
+											<ul>
+												<li class="ico email"><a href="mailto:infotnt.com">infotnt.com</a></li>
+												<li class="ico phone">(800) 261-9930</li>
+												<li class="ico address">5009 Pacific Hwy E Suite 7 Fife, WA 98424</li>
+											</ul>
+
+									</div><!-- .col-1-3 -->
+
+									<div class="col-2-3">
+										<div class="col-2-3">
+											<h4>Licenses</h4>
+											Washington Contractors License # SUSTAFI941NQ<br>
+											Oregon Commercial General Contractor Level 2 License # 185643<br>
+											California C-15 License # 973811<br>
+										</div>
+										<div class="col-1-3">
+											<h4>Resources</h4>
+												<ul>
+													<li><a href="#">Contact</a></li>
+													<li><a href="#">Team</a></li>
+													<li><a href="#">Sustainability</a></li>
+													<li><a href="#">Products</a></li>
+												</ul>
+										</div>
+									</div><!-- .col-2-3 -->
+								</div><!-- .grid -->
+							</div><!-- .container -->
+						</div><!-- .site-info -->
+						<div class="legal">
+							<div class="container">
+								&copy;<?=date('Y');?> Sustainable Interiors, Inc. All Rights Reserved. <a href="#">Website Design & Development by Aaron Marth</a>.
+
+								<a href="#" class="scroll-top"><span>Scroll To Top</span></a>
+							</div>
+						</div>
+					</footer><!-- #colophon -->
+				</div><!-- #page -->
+				{{ wp_footer }}
+			</div><!-- .site-pusher -->
+		</div><!-- .site-wrapper -->
+	</body>
+</html>
+
+
+
+
+{#
 		<header class="header" >
 			{% block header %}
 				<div class="wrapper">
@@ -57,3 +176,4 @@
 		{% endblock %}
 	</body>
 </html>
+#}

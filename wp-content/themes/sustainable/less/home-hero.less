@@ -1,0 +1,211 @@
+#hero {
+  height: 668px;
+  position: relative;
+
+    .flexslider {
+      height: 100%;
+
+        .flex-viewport { height: 100%; width: 100%; }
+
+        .slides {
+          margin: 0;
+          .plain-list;
+          height: 100%;
+
+            li {
+              width: 100%;
+              height: 100%;
+              position: relative;
+
+                &:after {
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  content: "";
+                  position: absolute;
+                  background: rgba(54, 54, 54, .7);
+                }//:after
+
+                .container {
+                  height: 100%;
+                  display: table;
+
+                    .caption {
+                      top: 10px;
+                      .opacity(0);
+                      z-index: 100;
+                      padding: 20px 0;
+                      overflow: hidden;
+                      position: relative;
+                      text-align: center;
+                      display: table-cell;
+                      vertical-align: middle;
+
+                        span {
+                          color: @white;
+                          display: block;
+                          line-height: 120%;
+                          margin-bottom: 5px;
+
+                            &.main-headline {
+                              font-size: 64px;
+                              text-transform: uppercase;
+                            }//.main-headline
+
+                            &.sub-headline {
+                              font-size: 22px;
+                              max-width: 700px;
+                              line-height: 140%;
+                              margin: 0 auto 50px;
+                            }//.sub-headline
+                        }//span
+                    }//.caption
+                }//.container
+            }//li
+        }//.slides
+
+        .flex-direction-nav {
+          margin: 0;
+          .plain-list;
+
+            li {
+              top: 50%;
+              width: 16px;
+              height: 20px;
+              z-index: 100;
+              overflow: hidden;
+              text-indent: 100%;
+              margin-top: -20px;
+              position: absolute;
+              white-space: nowrap;
+
+                a {
+                  .opacity(0);
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  position: relative;
+                  background: url(img/ico-hero-carets@2x.png) 1px 0 no-repeat;
+                  background-size: 26px 40px;
+
+                    &:after {
+                      top: 0;
+                      left: 0;
+                      .opacity(0);
+                      content: "";
+                      width: 100%;
+                      height: 100%;
+                      display: block;
+                      position: absolute;
+                      .transition(all .25s ease);
+                      background: url(img/ico-hero-carets@2x.png) 1px -21px no-repeat;
+                      background-size: 26px 40px;
+                    }//:after
+
+                    &:hover {
+                      &:after { .opacity(1); }
+                    }//:hover
+                }//a
+
+                &.flex-nav-prev { left: 50px; }//.flex-nav-prev
+
+                &.flex-nav-next {
+                  right: 50px;
+
+                    a {
+                      background-position: -11px 0px;
+
+                        &:after {
+                          background-position: -11px -21px;
+                        }//:after
+                    }//a
+                }//.flex-nav-next
+            }//li
+        }//.flex-direction-nav
+
+        .flex-control-paging {
+          left: 0;
+          right: 0;
+          margin: 0;
+          .plain-list;
+          z-index: 100;
+          bottom: 10px;
+          padding: 0 20px;
+          text-align: center;
+          position: absolute;
+
+            li {
+              margin: 0 3px;
+              display: inline-block;
+
+                a {
+                  width: 38px;
+                  height: 12px;
+                  padding: 4px 0;
+                  display: block;
+                  overflow: hidden;
+                  text-indent: 100%;
+                  white-space: nowrap;
+                  position: relative;
+
+                    &:before {
+                      left: 0;
+                      top: 4px;
+                      content: "";
+                      height: 4px;
+                      width: 100%;
+                      display: block;
+                      .transition(all .25s ease);
+                      background: rgba(255, 255, 255, .5);
+                    }//:before
+
+                    &.flex-active, &:hover {
+                      &:before { background: @color1; }
+                    }//.flex-active
+                }//a
+            }//li
+
+        }//.flex-control-paging
+
+      &:hover {
+        .flex-direction-nav a { .opacity(1); }
+      }//:hover
+    }//.flexslider
+
+  @media @tablet, @mobile-lg, @mobile {
+    height: 580px;
+
+      .flexslider {
+        .slides {
+          li {
+            .container {
+              .caption {
+                span.main-headline { font-size: 45px; }
+              }//.caption
+            }//.container
+          }//li
+        }//.slides
+        .flex-direction-nav { display: none; }
+      }//.flexslider
+  }//@mobile
+
+  @media @mobile-lg, @mobile {
+    height: 470px;
+
+      .flexslider {
+        .slides {
+          li {
+            .container {
+              height: 445px;
+
+                .caption {
+                  span.main-headline { font-size: 40px; }
+                  span.sub-headline { font-size: 16px; }
+                }//.caption
+            }//.container
+          }//li
+        }//.slides
+      }//.flexslider
+  }//@mobile
+}//#hero

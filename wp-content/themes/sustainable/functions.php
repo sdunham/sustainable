@@ -9,17 +9,44 @@ if ( ! class_exists( 'Timber' ) ) {
 
 Timber::$dirname = array('templates', 'views');
 
-class StarterSite extends TimberSite {
+class SustainableSite extends TimberSite {
 
 	function __construct() {
 		add_theme_support( 'post-formats' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'menus' );
+
+		register_nav_menus( array(
+			'primary' => esc_html__( 'Primary', 'sustainable-interiors' ),
+		) );
+
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+
+		add_action( 'wp_enqueue_scripts', array($this, 'enqueue_scripts') );
 		parent::__construct();
+	}
+
+	function enqueue_scripts() {
+		wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.custom.53630.js', array(), '', false );
+		wp_enqueue_script( 'map', get_template_directory_uri() . '/js/map.js', array(), '', true );
+
+		wp_enqueue_style( 'sustainable-interiors-style', get_stylesheet_uri() );
+
+		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'jquery-effects-core' );
+
+		wp_enqueue_script( 'skrollr', get_template_directory_uri() . '/js/skollr.js', array(), '', true );
+		wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/jquery.flexslider-min.js', array(), '', true );
+		wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', array(), '', true );
+		wp_enqueue_script( 'sustainable-interiors-common', get_template_directory_uri() . '/js/sus-common.js', array(), '', true );
+
+
+		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
 	}
 
 	function register_post_types() {
@@ -31,26 +58,16 @@ class StarterSite extends TimberSite {
 	}
 
 	function add_to_context( $context ) {
-		$context['foo'] = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::get_context();';
-		$context['menu'] = new TimberMenu();
+		$context['menu'] = new TimberMenu('primary');
 		$context['site'] = $this;
 		return $context;
 	}
 
 	function add_to_twig( $twig ) {
 		/* this is where you can add your own fuctions to twig */
-		$twig->addExtension( new Twig_Extension_StringLoader() );
-		$twig->addFilter( 'myfoo', new Twig_Filter_Function( 'myfoo' ) );
 		return $twig;
 	}
 
 }
 
-new StarterSite();
-
-function myfoo( $text ) {
-	$text .= ' bar!';
-	return $text;
-}
+new SustainableSite();

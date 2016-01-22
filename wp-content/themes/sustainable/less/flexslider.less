@@ -1,0 +1,112 @@
+/*
+ * jQuery FlexSlider v2.5.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 and later license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ *
+ */
+
+/* ====================================================================================================================
+ * RESETS
+ * ====================================================================================================================*/
+
+
+.flex-container,
+.flex-slider {
+
+  a:hover,
+  a:focus {
+
+    outline: none;
+
+  }
+
+}
+
+.slides,
+.slides > li,
+.flex-control-nav,
+.flex-direction-nav {
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+}
+
+.flex-pauseplay span {
+
+  text-transform: capitalize;
+
+}
+
+/* ====================================================================================================================
+ * BASE STYLES
+ * ====================================================================================================================*/
+
+
+.flexslider {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+
+    .slides {
+      margin: 0;
+      .plain-list;
+      height: 100%;
+
+        > li {
+          height: 100%;
+          display: none;
+          -webkit-backface-visibility: hidden;
+        }//> li
+
+        img{
+          width: 100%;
+          display: block;
+        }//img
+
+
+      //
+      // Clearfix for the .slides element
+      //
+
+        &:after{
+
+          content: "";
+          display: block;
+          clear: both;
+          visibility: hidden;
+          line-height: 0;
+          height: 0;
+        }//:after
+
+      html[xmlns] &{ display: block; }//
+
+      * html &{ height: 1%; }//
+
+
+       //
+       // No JavaScript Fallback
+       // If you are not using another script, such as Modernizr, make sure you
+       // include js that eliminates this class on page load
+       //
+
+
+      .no-js &{
+
+          > li{
+
+              &:first-child{
+
+                display: block;
+
+              }//:first-child
+          }// > li
+      }// .no-js
+    }//.slides
+}//.flexslider
