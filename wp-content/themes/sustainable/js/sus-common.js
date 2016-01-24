@@ -8,7 +8,52 @@ jQuery(document).ready(function($){
 
 
 	//magnific popup stuff
-	$('.ajax-popup-link').magnificPopup({
+	//portfolio popup
+	$('.portfolio-popup-link').magnificPopup({
+		type: 'ajax',
+		removalDelay: 250,
+		mainClass: 'mfp-fade',
+		ajax: {
+			settings: {
+				method: 'POST',
+				url: sustainableIncludes.ajaxurl,
+				data: {
+					action: 'portfolio_popup',
+					post_id: 0 //TODO
+				}
+			}
+		},
+		callbacks: {
+			ajaxContentAdded: function(){
+				initiateFlexslider();
+
+				$('.mfp-content').addClass('loaded');
+			}
+		}
+	});
+
+	//product popup
+	$('.product-popup-link').magnificPopup({
+		type: 'ajax',
+		removalDelay: 250,
+		mainClass: 'mfp-fade',
+		ajax: {
+			settings: {
+				method: 'POST',
+				url: sustainableIncludes.ajaxurl,
+				data: {
+					action: 'product_popup',
+					post_id: 0 //TODO
+				}
+			}
+		},
+		callbacks: {
+			ajaxContentAdded: function(){
+				$('.mfp-content').addClass('loaded');
+			}
+		}
+	});
+	/*$('.ajax-popup-link').magnificPopup({
 		type: 'ajax',
 		removalDelay: 250,
 		mainClass: 'mfp-fade',
@@ -19,29 +64,29 @@ jQuery(document).ready(function($){
 				$('.mfp-content').addClass('loaded');
 			}
 		}
-	});
+	});*/
 
 	function initiateFlexslider(){
 		$('#carousel').flexslider({
-      animation: "slide",
-      controlNav: false,
-      animationLoop: false,
-      slideshow: false,
-      itemWidth: 180,
-      itemMargin: 15,
-      asNavFor: '#slider'
-    });
+	      animation: "slide",
+	      controlNav: false,
+	      animationLoop: false,
+	      slideshow: false,
+	      itemWidth: 180,
+	      itemMargin: 15,
+	      asNavFor: '#slider'
+	    });
 
-    $('#slider').flexslider({
-      animation: "slide",
-      controlNav: false,
-      animationLoop: false,
-      slideshow: false,
-      sync: "#carousel",
-      start: function(slider){
-        $('#slider, #carousel').addClass('loaded');
-      }
-    });
+	    $('#slider').flexslider({
+	      animation: "slide",
+	      controlNav: false,
+	      animationLoop: false,
+	      slideshow: false,
+	      sync: "#carousel",
+	      start: function(slider){
+	        $('#slider, #carousel').addClass('loaded');
+	      }
+	    });
 	}
 
 	//hero slider for homepage

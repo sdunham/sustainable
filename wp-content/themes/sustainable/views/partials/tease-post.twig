@@ -1,5 +1,6 @@
-{% extends "tease.twig" %}
+{% extends "partials/tease.twig" %}
 
+{# TODO #}
 {% block content %}
 	<h2 class="h2"><a href="{{post.link}}">{{post.title}}</a></h2>
 		<p>{{post.get_preview(25)}}</p>

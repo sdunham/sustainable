@@ -1,6 +1,33 @@
 {% extends "base.twig" %}
 
+{# TODO #}
 {% block content %}
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+			<article id="content-body" class="post-type-{{post.post_type}} post-{{post.ID}}">
+				<div class="container">
+					<div class="content flex">
+						<div class="left">
+							<h1>{{post.title}}</h1>
+							{# TODO #}
+							<span class="small sans green">{{ post.post_date|date}}</span>
+							<p>We provide interior solutions, including flooring and other finishes, to direct customers and general contractors. We understand administration, safety, project schedules, LEED reporting requirements, and finding the right products to meet your design intent and budget.  We also assist with sustainable initiatives and help meet set-aside goals.</p>
+						</div>
+						<div class="right">
+							<p>In 2005 Dana Pittman and Colin Higginbottom founded Sustainable Interiors. Starting on Fort Lewis, WA (now JBLM) primarily, the first ever Sustainable Interior Showroom was developed. From Fort Lewis and a Sustainable mission, we began to branch out into Oregon, California, Montana, and now Hawaii, Nevada, and Colorado.
+Most of our first projects performed were federal contracts and GSA contracts. We then began to take on large projects with general contractors, higher education contracts, and now urban development projects. Today we are experts in all of these areas.</p>
+						</div>
+					</div><!-- .content -->
+				</div><!-- .container -->
+			</article><!-- #content-body -->
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+
+
+	{#
 	<div class="content-wrapper">
 		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 			<section class="article-content">
@@ -25,4 +52,6 @@
 			</section>
 		</article>
 	</div><!-- /content-wrapper -->
+	#}
+
 {% endblock %}

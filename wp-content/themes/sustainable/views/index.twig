@@ -1,5 +1,6 @@
 {% extends "base.twig" %}
 
+{# TODO #}
 {% block content %}
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
@@ -16,7 +17,7 @@
 
 			<article id="content-body">
 				{% for post in posts %}
-					{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+					{% include ['partials/tease-'~post.post_type~'.twig', 'partials/tease.twig'] %}
 				{% endfor %}
 			</article><!-- #content-body -->
 

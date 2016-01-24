@@ -26,6 +26,15 @@ class SustainableSite extends TimberSite {
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 
 		add_action( 'wp_enqueue_scripts', array($this, 'enqueue_scripts') );
+
+		// AJAX Handlers
+		// Portfolio Popup
+		add_action( 'wp_ajax_nopriv_portfolio_popup', array($this, 'render_portfolio_popup') );
+		add_action( 'wp_ajax_portfolio_popup', array($this, 'render_portfolio_popup') );
+		// Product Popup
+		add_action( 'wp_ajax_nopriv_product_popup', array($this, 'render_product_popup') );
+		add_action( 'wp_ajax_product_popup', array($this, 'render_product_popup') );
+
 		parent::__construct();
 	}
 
@@ -43,10 +52,27 @@ class SustainableSite extends TimberSite {
 		wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', array(), '', true );
 		wp_enqueue_script( 'sustainable-interiors-common', get_template_directory_uri() . '/js/sus-common.js', array(), '', true );
 
+		// sus-common.js localization
+		wp_localize_script( 'sustainable-interiors-common', 'sustainableIncludes', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+		//
+		wp_localize_script( 'map', 'mapIncludes', array( 'markericon' => get_template_directory_uri() . '/img/marker@2x.png' ) );
+
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
+	}
+
+	// TODO
+	function render_portfolio_popup(){
+		Timber::render('partials/portfolio-popup.twig');
+		wp_die();
+	}
+
+	// TODO
+	function render_product_popup(){
+		Timber::render('partials/product-popup.twig');
+		wp_die();
 	}
 
 	function register_post_types() {
