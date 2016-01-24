@@ -45,8 +45,9 @@
 							</nav><!-- #site-navigation -->
 
 							<div class="header-btns">
-								{# TODO #}
-								<a class="contact-btn btn" href="{{ site.url }}">Contact</a>
+								{% if header_contact_link %}
+								<a class="contact-btn btn" href="{{ header_contact_link }}">Contact</a>
+								{% endif %}
 
 								<a class="menu-btn btn">
 									<div class="toggle">
@@ -80,28 +81,34 @@
 								<div class="grid grid-pad grid-pull">
 									<div class="col-1-3">
 										<h4>Contact</h4>
+											{% if footer_contact_email or footer_contact_phone or footer_contact_address %}
 											<ul>
-												<li class="ico email"><a href="mailto:infotnt.com">infotnt.com</a></li>
-												<li class="ico phone">(800) 261-9930</li>
-												<li class="ico address">5009 Pacific Hwy E Suite 7 Fife, WA 98424</li>
+												{% if footer_contact_email %}
+												<li class="ico email"><a href="mailto:{{footer_contact_email}}">{{footer_contact_email}}</a></li>
+												{% endif %}
+												{% if footer_contact_phone %}
+												<li class="ico phone">{{footer_contact_phone}}</li>
+												{% endif %}
+												{% if footer_contact_address %}
+												<li class="ico address">{{footer_contact_address}}</li>
+												{% endif %}
 											</ul>
-
+											{% endif %}
 									</div><!-- .col-1-3 -->
 
 									<div class="col-2-3">
 										<div class="col-2-3">
 											<h4>Licenses</h4>
-											Washington Contractors License # SUSTAFI941NQ<br>
-											Oregon Commercial General Contractor Level 2 License # 185643<br>
-											California C-15 License # 973811<br>
+											{{footer_licenses_text}}
 										</div>
 										<div class="col-1-3">
 											<h4>Resources</h4>
 												<ul>
-													<li><a href="#">Contact</a></li>
-													<li><a href="#">Team</a></li>
-													<li><a href="#">Sustainability</a></li>
-													<li><a href="#">Products</a></li>
+													{% for item in footer_resources_menu.get_items %}
+														<li class="nav-item {{item.classes | join(' ')}}">
+															<a class="nav-link" href="{{item.get_link}}">{{item.title}}</a>
+														</li>
+													{% endfor %}
 												</ul>
 										</div>
 									</div><!-- .col-2-3 -->
@@ -110,7 +117,7 @@
 						</div><!-- .site-info -->
 						<div class="legal">
 							<div class="container">
-								&copy;<?=date('Y');?> Sustainable Interiors, Inc. All Rights Reserved. <a href="#">Website Design & Development by Aaron Marth</a>.
+								&copy;<?=date('Y');?> Sustainable Interiors, Inc. All Rights Reserved. <a href="http://www.aaronmarth.com/">Website Design & Development by Aaron Marth</a>.
 
 								<a href="#" class="scroll-top"><span>Scroll To Top</span></a>
 							</div>

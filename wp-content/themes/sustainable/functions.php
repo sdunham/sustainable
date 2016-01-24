@@ -18,6 +18,7 @@ class SustainableSite extends TimberSite {
 
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary', 'sustainable-interiors' ),
+			'resources' => esc_html__( 'Footer Resources', 'sustainable-interiors' )
 		) );
 
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
@@ -85,6 +86,17 @@ class SustainableSite extends TimberSite {
 
 	function add_to_context( $context ) {
 		$context['menu'] = new TimberMenu('primary');
+
+		// Header options
+		$context['header_contact_link'] = get_field('contact_page', 'option');
+
+		// Footer options
+		$context['footer_contact_email'] = get_field('contact_email', 'option');
+		$context['footer_contact_phone'] = get_field('contact_phone', 'option');
+		$context['footer_contact_address'] = get_field('contact_address', 'option');
+		$context['footer_licenses_text'] = get_field('licenses_text', 'option');
+		$context['footer_resources_menu'] = new TimberMenu('resources');
+
 		$context['site'] = $this;
 		return $context;
 	}
@@ -97,3 +109,15 @@ class SustainableSite extends TimberSite {
 }
 
 new SustainableSite();
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'General Theme Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'theme-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+}
