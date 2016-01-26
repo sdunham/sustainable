@@ -1,0 +1,15 @@
+<li style="background: url({{TimberImage(slide.image).src('home-hero')}}) center center no-repeat; background-size: cover;">
+	<div class="container">
+		<div class="caption">
+			{% if slide.title %}
+			<span class="main-headline">{{slide.title}}</span>
+			{% endif %}
+			{% if slide.text %}
+			<span class="sub-headline">{{slide.text}}</span>
+			{% endif %}
+			{% if slide.learn_more_url %}
+			<a href="{{slide.learn_more_url}}" class="btn lg">Learn More</a>
+			{% endif %}
+		</div><!-- .caption -->
+	</div><!-- .container -->
+</li>

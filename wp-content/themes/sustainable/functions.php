@@ -16,11 +16,32 @@ class SustainableSite extends TimberSite {
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'menus' );
 
+		// Register Menus
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary', 'sustainable-interiors' ),
 			'resources' => esc_html__( 'Footer Resources', 'sustainable-interiors' )
 		) );
 
+		// Register Image Sizes
+    	// Home Image Sizes
+		add_image_size( 'home-hero', 1300, 668, true );
+		add_image_size( 'post-block', 650, 308, true );
+		// Interior Template Image Sizes
+		add_image_size( 'interior-hero', 1300, 280, true );
+		add_image_size( 'interior-showcase', 930, 435, true );
+		add_image_size( 'interior-team', 275, 275, true );
+		add_image_size( 'interior-grid', 575, 275, true );
+		add_image_size( 'interior-product', 490, 505, true );
+		add_image_size( 'interior-portfolio-slider', 975, 555, true );
+		add_image_size( 'interior-portfolio-carousel', 180, 105, true );
+		//RTE Image Sizes
+		add_image_size( 'small', 230, 230, true );
+		update_option( 'medium_size_w', 445 );
+		update_option( 'medium_size_h', 445 );
+		update_option( 'large_size_w', 965 );
+		update_option( 'large_size_h', 965 );
+
+		// General Site Setup
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
