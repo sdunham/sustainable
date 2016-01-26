@@ -4,16 +4,8 @@
 {% block content %}
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-			<div id="hero-banner">
-				<div class="image skrollable skrollable-between" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/hero-1.jpg) center center no-repeat; background-size: cover;"  data-0="top:0px; opacity: .3; transform: scale(1);" data-260="top:250px; opacity: 0; transform: scale(1.2);"></div>
-				<div class="caption skrollable skrollable-between" data-0="top: 0px; opacity: 1;" data-260="top: 200px; opacity: 0;">
-					<div class="container">
-						<span class="main-headline page-title">About</span>
-						<span class="sub-headline">Our certifications include: 8(a), Small Business, Veteran-owned, <br>Minortiy-owned, and Woman-Owned.</span>
-					</div><!-- .container -->
-				</div><!-- .caption -->
-			</div><!-- #hero-banner -->
-
+			
+			{% include 'partials/hero-banner.twig' %}
 
 			<article id="content-body">
 				<div class="container">
