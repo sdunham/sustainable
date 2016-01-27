@@ -1,46 +1,24 @@
 {% extends "base.twig" %}
 
-{# TODO #}
 {% block content %}
 <div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-			<div id="hero-banner">
-				<div class="image skrollable skrollable-between" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/hero-3.jpg) center center no-repeat; background-size: cover;"  data-0="top:0px; opacity: .3; transform: scale(1);" data-260="top:250px; opacity: 0; transform: scale(1.2);"></div>
-				<div class="caption skrollable skrollable-between" data-0="top: 0px; opacity: 1;" data-260="top: 200px; opacity: 0;">
-					<div class="container">
-						<span class="main-headline page-title">Contact</span>
-						<span class="sub-headline">Thank you for your interest in Sustainable Interiors. Feel free to give us a call or shoot us an e-mail, we look forward to serving you.</span>
-					</div><!-- .container -->
-				</div><!-- .caption -->
-			</div><!-- #hero-banner -->
+			
+			{% include 'partials/hero-banner.twig' %}
 
 			<script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
 			<article id="content-body" class="map">
 				<div id="map-canvas"></div><!-- #map -->
 				<div class="location-rte">
-					<span class="small sans green">General Inquiries</span>
-
-					<p class="large serif black">info@sustainableint.com<br>
-					(800) 261-9930</p>
-
-					<span class="small sans green">Fax</span>
-
-					<p class="large serif black">(866) 261-0269</p>
-
-					<span class="small sans green">Our headquarters</span>
-					<p class="large serif black">5009 Pacific Hwy E,<br>
-					Suite 7 <br>
-					Fife, WA 98424</p>
+					{% for contact_section in post.get_field('contact_info_section') %}
+						 {% include 'partials/contact-section.twig' %}
+					{% endfor %}
 				</div><!-- . -->
 			</article><!-- .content-body -->
 
-			<article id="callout-block">
-				<div class="container">
-					<h2>Looking for Somebody Specific?</h2>
-					<p>Feel free to check out our team page and reach out to a team member directly.</p><br><br>
-					<a href="/team/" class="btn dark white">View Team Page</a>
-				</div><!-- .container -->
-			</article><!-- #callout-block -->
+			{% if post.get_field('display_callout_section') %}
+			{% include 'partials/callout.twig' %}
+			{% endif %}
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
