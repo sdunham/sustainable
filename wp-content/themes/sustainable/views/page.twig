@@ -1,6 +1,5 @@
 {% extends "base.twig" %}
 
-{# TODO #}
 {% block content %}
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
@@ -9,37 +8,17 @@
 
 			<article id="content-body">
 				<div class="container">
-					<div class="content flex">
-						<div class="left">
-							<h1>excellence.<br>
-								service.<br>
-								integrity.</h1>
-								<p>We provide interior solutions, including flooring and other finishes, to direct customers and general contractors. We understand administration, safety, project schedules, LEED reporting requirements, and finding the right products to meet your design intent and budget.  We also assist with sustainable initiatives and help meet set-aside goals.</p>
-						</div>
-						<div class="right">
-							<p>In 2005 Dana Pittman and Colin Higginbottom founded Sustainable Interiors. Starting on Fort Lewis, WA (now JBLM) primarily, the first ever Sustainable Interior Showroom was developed. From Fort Lewis and a Sustainable mission, we began to branch out into Oregon, California, Montana, and now Hawaii, Nevada, and Colorado.
-Most of our first projects performed were federal contracts and GSA contracts. We then began to take on large projects with general contractors, higher education contracts, and now urban development projects. Today we are experts in all of these areas.</p>
-						</div>
-					</div><!-- .content -->
+					{% include 'partials/post-content-columns.twig' %}
 				</div><!-- .container -->
 			</article><!-- #content-body -->
 
+			{% if post.get_field('display_showcase_section') %}
+			{% include 'partials/showcase.twig' %}
+			{% endif %}
 
-			<article id="showcase">
-				<div class="showcase-container">
-					<div class="image-container"><img src="{{fn('get_stylesheet_directory_uri')}}/img/interior-showcase-1.jpg" data-bottom-center="top: -30px" data-top-center="top: 30px;"/></div><!-- .image-container -->
-					<div class="caption skrollable skrollable-between" data-0="top: 7.5%;" data-top="top: 45%;">"At Sustainable Interiors, we embody holistic sustainability and it is a part of everything we do."</div><!-- . -->
-				</div><!-- .showcase-container -->
-			</article>
-
-			<article id="callout-block">
-				<div class="container">
-					<h2>Want to See Our Work?</h2>
-					<p>We’ve been busy, check out our portfolio to see what we’ve been up to.</p><br><br>
-					<a href="#" class="btn dark white">view portfolio</a>
-				</div><!-- .container -->
-			</article><!-- #callout-block -->
-
+			{% if post.get_field('display_callout_section') %}
+			{% include 'partials/callout.twig' %}
+			{% endif %}
 		</main><!-- #main -->
 	</div><!-- #primary -->
 {% endblock %}

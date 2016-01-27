@@ -26,4 +26,8 @@ $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
 
+$context['content_column_1'] = $post->content(1);
+$context['content_column_2'] = $post->content(2);
+$context['content_has_columns'] = strpos($post->post_content  , '<!--nextpage-->' ) !== false;
+
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );

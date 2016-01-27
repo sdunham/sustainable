@@ -1,0 +1,24 @@
+{% if content_has_columns %}
+<div class="content flex">
+	<div class="left">
+		{# TODO #}
+		{% if post.get_field('secondary_title') %}
+		<h1>
+			{{post.get_field('secondary_title')}}
+		</h1>
+		{% endif %}
+		{{content_column_1}}
+	</div>
+	<div class="right">
+		{{content_column_2}}
+	</div>
+</div><!-- .content -->
+{% else %}
+{# TODO #}
+{% if post.get_field('secondary_title') %}
+<h1>
+	{{post.get_field('secondary_title')}}
+</h1>
+{% endif %}
+{{post.content}}
+{% endif %}
