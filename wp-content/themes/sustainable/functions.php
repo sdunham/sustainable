@@ -44,8 +44,9 @@ class SustainableSite extends TimberSite {
 		// General Site Setup
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
-		add_action( 'init', array( $this, 'register_post_types' ) );
-		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array($this, 'register_portfolio_post_type') );
+		add_action( 'init', array($this, 'register_product_post_type') );
+		add_action( 'init', array($this, 'register_team_post_type') );
 
 		add_action( 'wp_enqueue_scripts', array($this, 'enqueue_scripts') );
 
@@ -97,12 +98,130 @@ class SustainableSite extends TimberSite {
 		wp_die();
 	}
 
-	function register_post_types() {
-		//this is where you can register custom post types
-	}
+	/**
+	 * Register a portfolio item post type.
+	 *
+	 * @link http://codex.wordpress.org/Function_Reference/register_post_type
+	 */
+	function register_portfolio_post_type() {
+		$labels = array(
+			'name'               => _x( 'Portfolio Items', 'post type general name', 'sustainable-interiors' ),
+			'singular_name'      => _x( 'Portfolio Item', 'post type singular name', 'sustainable-interiors' ),
+			'menu_name'          => _x( 'Portfolio Items', 'admin menu', 'sustainable-interiors' ),
+			'name_admin_bar'     => _x( 'Portfolio Item', 'add new on admin bar', 'sustainable-interiors' ),
+			'add_new'            => _x( 'Add New', 'portfolio', 'sustainable-interiors' ),
+			'add_new_item'       => __( 'Add New Portfolio Item', 'sustainable-interiors' ),
+			'new_item'           => __( 'New Portfolio Item', 'sustainable-interiors' ),
+			'edit_item'          => __( 'Edit Portfolio Item', 'sustainable-interiors' ),
+			'view_item'          => __( 'View Portfolio Item', 'sustainable-interiors' ),
+			'all_items'          => __( 'All Portfolio Items', 'sustainable-interiors' ),
+			'search_items'       => __( 'Search Portfolio Items', 'sustainable-interiors' ),
+			'parent_item_colon'  => __( 'Parent Portfolio Items:', 'sustainable-interiors' ),
+			'not_found'          => __( 'No portfolio items found.', 'sustainable-interiors' ),
+			'not_found_in_trash' => __( 'No portfolio items found in Trash.', 'sustainable-interiors' )
+		);
 
-	function register_taxonomies() {
-		//this is where you can register custom taxonomies
+		$args = array(
+			'labels'             => $labels,
+			'description'        => __( 'Description.', 'sustainable-interiors' ),
+			'public'             => false,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'portfolio' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => null,
+			'menu_icon'			 => 'dashicons-portfolio',
+			'supports'           => array( 'title' )
+		);
+
+		register_post_type( 'portfolio', $args );
+	}
+	
+	/**
+	 * Register a product post type.
+	 *
+	 * @link http://codex.wordpress.org/Function_Reference/register_post_type
+	 */
+	function register_product_post_type() {
+		$labels = array(
+			'name'               => _x( 'Products', 'post type general name', 'sustainable-interiors' ),
+			'singular_name'      => _x( 'Product', 'post type singular name', 'sustainable-interiors' ),
+			'menu_name'          => _x( 'Products', 'admin menu', 'sustainable-interiors' ),
+			'name_admin_bar'     => _x( 'Product', 'add new on admin bar', 'sustainable-interiors' ),
+			'add_new'            => _x( 'Add New', 'product', 'sustainable-interiors' ),
+			'add_new_item'       => __( 'Add New Product', 'sustainable-interiors' ),
+			'new_item'           => __( 'New Product', 'sustainable-interiors' ),
+			'edit_item'          => __( 'Edit Product', 'sustainable-interiors' ),
+			'view_item'          => __( 'View Product', 'sustainable-interiors' ),
+			'all_items'          => __( 'All Products', 'sustainable-interiors' ),
+			'search_items'       => __( 'Search Products', 'sustainable-interiors' ),
+			'parent_item_colon'  => __( 'Parent Products:', 'sustainable-interiors' ),
+			'not_found'          => __( 'No products found.', 'sustainable-interiors' ),
+			'not_found_in_trash' => __( 'No products found in Trash.', 'sustainable-interiors' )
+		);
+
+		$args = array(
+			'labels'             => $labels,
+			'description'        => __( 'Description.', 'sustainable-interiors' ),
+			'public'             => false,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'product' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => null,
+			'menu_icon'			 => 'dashicons-products',
+			'supports'           => array( 'title' )
+		);
+
+		register_post_type( 'product', $args );
+	}
+	
+	/**
+	 * Register a team member post type.
+	 *
+	 * @link http://codex.wordpress.org/Function_Reference/register_post_type
+	 */
+	function register_team_post_type() {
+		$labels = array(
+			'name'               => _x( 'Team Members', 'post type general name', 'sustainable-interiors' ),
+			'singular_name'      => _x( 'Team Member', 'post type singular name', 'sustainable-interiors' ),
+			'menu_name'          => _x( 'Team Members', 'admin menu', 'sustainable-interiors' ),
+			'name_admin_bar'     => _x( 'Team Member', 'add new on admin bar', 'sustainable-interiors' ),
+			'add_new'            => _x( 'Add New', 'team', 'sustainable-interiors' ),
+			'add_new_item'       => __( 'Add New Team Member', 'sustainable-interiors' ),
+			'new_item'           => __( 'New Team Member', 'sustainable-interiors' ),
+			'edit_item'          => __( 'Edit Team Member', 'sustainable-interiors' ),
+			'view_item'          => __( 'View Team Member', 'sustainable-interiors' ),
+			'all_items'          => __( 'All Team Members', 'sustainable-interiors' ),
+			'search_items'       => __( 'Search Team Members', 'sustainable-interiors' ),
+			'parent_item_colon'  => __( 'Parent Team Members:', 'sustainable-interiors' ),
+			'not_found'          => __( 'No team members found.', 'sustainable-interiors' ),
+			'not_found_in_trash' => __( 'No team members found in Trash.', 'sustainable-interiors' )
+		);
+
+		$args = array(
+			'labels'             => $labels,
+			'description'        => __( 'Description.', 'sustainable-interiors' ),
+			'public'             => false,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'team' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => null,
+			'menu_icon'			 => 'dashicons-groups',
+			'supports'           => array( 'title' )
+		);
+
+		register_post_type( 'team', $args );
 	}
 
 	function add_to_context( $context ) {
