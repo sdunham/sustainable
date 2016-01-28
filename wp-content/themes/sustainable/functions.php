@@ -128,7 +128,7 @@ class SustainableSite extends TimberSite {
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'portfolio' ),
+			//'rewrite'            => array( 'slug' => 'portfolio' ),
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
@@ -137,7 +137,7 @@ class SustainableSite extends TimberSite {
 			'supports'           => array( 'title' )
 		);
 
-		register_post_type( 'portfolio', $args );
+		register_post_type( 'portfolio-cpt', $args );
 	}
 	
 	/**
@@ -170,7 +170,7 @@ class SustainableSite extends TimberSite {
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'product' ),
+			//'rewrite'            => array( 'slug' => 'product' ),
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
@@ -179,7 +179,7 @@ class SustainableSite extends TimberSite {
 			'supports'           => array( 'title' )
 		);
 
-		register_post_type( 'product', $args );
+		register_post_type( 'product-cpt', $args );
 	}
 	
 	/**
@@ -212,7 +212,7 @@ class SustainableSite extends TimberSite {
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'team' ),
+			//'rewrite'            => array( 'slug' => 'team' ),
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
@@ -221,7 +221,7 @@ class SustainableSite extends TimberSite {
 			'supports'           => array( 'title' )
 		);
 
-		register_post_type( 'team', $args );
+		register_post_type( 'team-cpt', $args );
 	}
 
 	function add_to_context( $context ) {
