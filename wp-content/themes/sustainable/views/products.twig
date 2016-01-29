@@ -9,98 +9,17 @@
 
 			<article id="product-grid" class="modal-grid">
 				<div class="container">
-
-					<div class="modal-block">
-						<a href="#" class="image product-popup-link">
-							<div class="image-container">
-								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-1.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
-							</div><!-- .image-container -->
-							<div class="details">
-								<h3 class="post-title">Carpet</h3><!-- .post-title -->
-							</div><!-- .details -->
-						</a>
-					</div><!-- .modal-block -->
-
-					<div class="modal-block">
-						<a href="#" class="image product-popup-link">
-							<div class="image-container">
-								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-2.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
-							</div><!-- .image-container -->
-							<div class="details">
-								<h3 class="post-title">Carpet</h3><!-- .post-title -->
-							</div><!-- .details -->
-						</a>
-					</div><!-- .modal-block -->
-
-					<div class="modal-block">
-						<a href="#" class="image product-popup-link">
-							<div class="image-container">
-								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-3.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
-							</div><!-- .image-container -->
-							<div class="details">
-								<h3 class="post-title">Carpet</h3><!-- .post-title -->
-								<!--<span class="post-meta">December 23, 2015</span><!-- .post-meta -->
-							</div><!-- .details -->
-						</a>
-					</div><!-- .modal-block -->
-
-					<div class="modal-block">
-						<a href="#" class="image product-popup-link">
-							<div class="image-container">
-								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-4.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
-							</div><!-- .image-container -->
-							<div class="details">
-								<h3 class="post-title">Carpet</h3><!-- .post-title -->
-							</div><!-- .details -->
-						</a>
-					</div><!-- .modal-block -->
-
-					<div class="modal-block">
-						<a href="#" class="image product-popup-link">
-							<div class="image-container">
-								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-5.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
-							</div><!-- .image-container -->
-							<div class="details">
-								<h3 class="post-title">Carpet</h3><!-- .post-title -->
-							</div><!-- .details -->
-						</a>
-					</div><!-- .modal-block -->
-
-					<div class="modal-block">
-						<a href="#" class="image product-popup-link">
-							<div class="image-container">
-								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-6.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
-							</div><!-- .image-container -->
-							<div class="details">
-								<h3 class="post-title">Carpet</h3><!-- .post-title -->
-							</div><!-- .details -->
-						</a>
-					</div><!-- .modal-block -->
-
-					<div class="modal-block">
-						<a href="#" class="image product-popup-link">
-							<div class="image-container">
-								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-7.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
-							</div><!-- .image-container -->
-							<div class="details">
-								<h3 class="post-title">Carpet</h3><!-- .post-title -->
-							</div><!-- .details -->
-						</a>
-					</div><!-- .modal-block -->
-
-					<div class="modal-block">
-						<a href="#" class="image product-popup-link">
-							<div class="image-container">
-								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-8.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
-							</div><!-- .image-container -->
-							<div class="details">
-								<h3 class="post-title">Carpet</h3><!-- .post-title -->
-							</div><!-- .details -->
-						</a>
-					</div><!-- .modal-block -->
+					{% for product in posts %}
+						{% set vars = {
+							'id': product.ID,
+							'image_id': product.image,
+							'title': product.title,
+							'type': 'product'
+						} %}
+						{% include 'partials/grid-item.twig' with vars only %}
+					{% endfor %}
 				</div><!-- .container -->
 			</article><!-- #product-grid -->
-
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

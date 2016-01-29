@@ -1,13 +1,9 @@
-{# TODO #}
 <div id="product_popup_wrapper">
-  <div class="product-image" style="background: url(http://placehold.it/490x505) center center no-repeat; background-size: cover;"></div><!-- .image-wrap -->
+  <div class="product-image" style="background: url({{TimberImage(post.image).src('interior-product')}}) center center no-repeat; background-size: cover;"></div><!-- .image-wrap -->
   <div class="flex-box">
     <div class="product-info">
-      <h3>Title Here</h3>
-      <p>Carpeting is the number one floor covering in North America. It can offer more versatility,
-        comfort, and ease of maintenance than other flooring options. It is also more "budget-friendly"
-        than most other choices and there are styles to coordinate with every décor.
-        <br><br>We work with all major carpet manufacturers.</p>
+      <h3>{{post.title}}</h3>
+      {{post.get_field('description')}}
       </div><!-- .product-info -->
     </div><!-- .flex-box -->
 </div>

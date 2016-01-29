@@ -94,7 +94,7 @@ class SustainableSite extends TimberSite {
 		wp_die();
 	}
 
-	// TODO
+	// Render the product popup for the given post
 	function render_product_popup(){
 		$intPostId = intval($_POST['post_id']);
 		$objPost = new TimberPost($intPostId);

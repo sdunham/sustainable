@@ -52,6 +52,11 @@ jQuery(document).ready(function($){
 			}
 		},
 		callbacks: {
+			elementParse: function(item){
+				var mp = $.magnificPopup.instance;
+				// Get the post id to display
+				mp.st.ajax.settings.data.post_id = $(item.el).data('postid');
+			},
 			ajaxContentAdded: function(){
 				$('.mfp-content').addClass('loaded');
 			}
