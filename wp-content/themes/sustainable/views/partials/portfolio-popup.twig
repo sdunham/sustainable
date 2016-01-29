@@ -1,76 +1,28 @@
 {# TODO #}
 <div id="flexslider_popup_wrapper">
-  <div class="mfp-title">
-    <h3>Title Here</h3>
-    <p>Address Here?</p>
-  </div><!-- .title -->
-    <div id="slider" class="flexslider">
-      <ul class="slides">
-        <li>
-          <img src="http://placehold.it/975x555" />
-    		</li>
-    		<li>
-          <img src="http://placehold.it/975x555" />
-    		</li>
-    		<li>
-          <img src="http://placehold.it/975x555" />
-    		</li>
-        <li>
-          <img src="http://placehold.it/975x555" />
-    		</li>
-    		<li>
-          <img src="http://placehold.it/975x555" />
-    		</li>
-    		<li>
-          <img src="http://placehold.it/975x555" />
-    		</li>
-        <li>
-          <img src="http://placehold.it/975x555" />
-    		</li>
-    		<li>
-          <img src="http://placehold.it/975x555" />
-    		</li>
-    		<li>
-          <img src="http://placehold.it/975x555" />
-    		</li>
-        <li>
-          <img src="http://placehold.it/975x555" />
-    		</li>
-      </ul>
-    </div>
+	<div class="mfp-title">
+	<h3>{{post.title}}</h3>
+	{% if post.location %}
+	<p>{{post.location}}</p>
+	{% endif %}
+	</div><!-- .title -->
+	<div id="slider" class="flexslider">
+		<ul class="slides">
+		{% for image in post.get_field('gallery_images') %}
+			<li>
+				<img src="{{ TimberImage(image).src('interior-portfolio-slider') }}" />
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
 
-    <div id="carousel" class="flexslider">
-      <ul class="slides">
-        <li>
-          <img src="http://placehold.it/180x105" />
-    		</li>
-    		<li>
-          <img src="http://placehold.it/180x105" />
-    		</li>
-    		<li>
-          <img src="http://placehold.it/180x105" />
-    		</li>
-        <li>
-          <img src="http://placehold.it/180x105" />
-    		</li>
-    		<li>
-          <img src="http://placehold.it/180x105" />
-    		</li>
-    		<li>
-          <img src="http://placehold.it/180x105" />
-    		</li>
-        <li>
-          <img src="http://placehold.it/180x105" />
-    		</li>
-    		<li>
-          <img src="http://placehold.it/180x105" />
-    		</li>
-    		<li>
-          <img src="http://placehold.it/180x105" />
-    		</li>
-        <li>
-          <img src="http://placehold.it/180x105" />
-    		</li>
-      </ul>
-    </div>
+	<div id="carousel" class="flexslider">
+		<ul class="slides">
+		{% for image in post.get_field('gallery_images') %}
+			<li>
+				<img src="{{ TimberImage(image).src('interior-portfolio-carousel') }}" />
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
 </div>

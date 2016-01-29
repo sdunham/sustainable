@@ -86,15 +86,19 @@ class SustainableSite extends TimberSite {
 		}
 	}
 
-	// TODO
+	// Render the portfolio popup for the given post
 	function render_portfolio_popup(){
-		Timber::render('partials/portfolio-popup.twig');
+		$intPostId = intval($_POST['post_id']);
+		$objPost = new TimberPost($intPostId);
+		Timber::render('partials/portfolio-popup.twig', array('post' => $objPost));
 		wp_die();
 	}
 
 	// TODO
 	function render_product_popup(){
-		Timber::render('partials/product-popup.twig');
+		$intPostId = intval($_POST['post_id']);
+		$objPost = new TimberPost($intPostId);
+		Timber::render('partials/product-popup.twig', array('post' => $objPost));
 		wp_die();
 	}
 

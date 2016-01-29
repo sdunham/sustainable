@@ -1,0 +1,13 @@
+<div class="modal-block">
+	<a href="#" class="slider {{type}}-popup-link" data-postid="{{id}}">
+		<div class="image-container">
+			<div class="image" style="background: url({{TimberImage(image_id).src('interior-grid')}}) center center no-repeat; background-size: cover;"></div><!-- .image -->
+		</div><!-- .image-container -->
+		<div class="details">
+			<h3 class="post-title">{{title}}</h3><!-- .post-title -->
+			{% if subtitle %}
+			<span class="post-location">{{subtitle}}</span>
+			{% endif %}
+		</div><!-- .details -->
+	</a>
+</div><!-- .modal-block -->

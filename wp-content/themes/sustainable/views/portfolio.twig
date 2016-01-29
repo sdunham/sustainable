@@ -9,82 +9,20 @@
 
 			<article id="product-grid" class="modal-grid">
 				<div class="container">
-
-					<div class="modal-block">
-						<a href="#" class="slider portfolio-popup-link">
-							<div class="image-container">
-								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-10.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
-							</div><!-- .image-container -->
-							<div class="details">
-								<h3 class="post-title">True North</h3><!-- .post-title -->
-								<span class="post-location">Seattle, WA</span>
-							</div><!-- .details -->
-						</a>
-					</div><!-- .modal-block -->
-
-					<div class="modal-block">
-						<a href="#" class="slider portfolio-popup-link">
-							<div class="image-container">
-								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-11.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
-							</div><!-- .image-container -->
-							<div class="details">
-								<h3 class="post-title">The Rivet</h3><!-- .post-title -->
-								<span class="post-location">Seattle, WA</span>
-							</div><!-- .details -->
-						</a>
-					</div><!-- .modal-block -->
-
-					<div class="modal-block">
-						<a href="#" class="slider portfolio-popup-link">
-							<div class="image-container">
-								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-1.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
-							</div><!-- .image-container -->
-							<div class="details">
-								<h3 class="post-title">Pearl District Marriot</h3><!-- .post-title -->
-								<span class="post-location">Portland, OR</span>
-							</div><!-- .details -->
-						</a>
-					</div><!-- .modal-block -->
-
-					<div class="modal-block">
-						<a href="#" class="slider portfolio-popup-link">
-							<div class="image-container">
-								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-12.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
-							</div><!-- .image-container -->
-							<div class="details">
-								<h3 class="post-title">1200 Madison</h3><!-- .post-title -->
-								<span class="post-location">Seattle, WA</span>
-							</div><!-- .details -->
-						</a>
-					</div><!-- .modal-block -->
-
-					<div class="modal-block">
-						<a href="#" class="slider portfolio-popup-link">
-							<div class="image-container">
-								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-13.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
-							</div><!-- .image-container -->
-							<div class="details">
-								<h3 class="post-title">Federal Center South</h3><!-- .post-title -->
-								<span class="post-location">Seattle, WA</span>
-							</div><!-- .details -->
-						</a>
-					</div><!-- .modal-block -->
-
-					<div class="modal-block">
-						<a href="#" class="slider portfolio-popup-link">
-							<div class="image-container">
-								<div class="image" style="background: url({{fn('get_stylesheet_directory_uri')}}/img/modal-placeholder-5.jpg) center center no-repeat; background-size: cover;"></div><!-- .image -->
-							</div><!-- .image-container -->
-							<div class="details">
-								<h3 class="post-title">Martin Apartments</h3><!-- .post-title -->
-								<span class="post-location">Seattle, WA</span>
-							</div><!-- .details -->
-						</a>
-					</div><!-- .modal-block -->
-
+					{% for portfolio_item in posts %}
+						{% set vars = {
+							'id': portfolio_item.ID,
+							'image_id': portfolio_item.gallery_images[0],
+							'title': portfolio_item.title,
+							'subtitle': portfolio_item.location,
+							'type': 'portfolio'
+						} %}
+						{% include 'partials/grid-item.twig' with vars only %}
+					{% endfor %}
 				</div><!-- .container -->
 			</article><!-- #product-grid -->
 
+			{# TODO #}
 			<article id="callout-block">
 				<div class="container">
 					<a href="#" class="btn dark white">Load More</a>

@@ -18,12 +18,16 @@ jQuery(document).ready(function($){
 				method: 'POST',
 				url: sustainableIncludes.ajaxurl,
 				data: {
-					action: 'portfolio_popup',
-					post_id: 0 //TODO
+					action: 'portfolio_popup'
 				}
 			}
 		},
 		callbacks: {
+			elementParse: function(item){
+				var mp = $.magnificPopup.instance;
+				// Get the post id to display
+				mp.st.ajax.settings.data.post_id = $(item.el).data('postid');
+			},
 			ajaxContentAdded: function(){
 				initiateFlexslider();
 
