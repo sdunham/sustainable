@@ -241,9 +241,9 @@ if (document.getElementById('map-canvas')) {
           title: 'marker',
           icon: {
             url: mapIncludes.markericon,
-            size: new google.maps.Size(42, 76),
+            size: new google.maps.Size(21, 38),
             scaledSize: new google.maps.Size(21, 38),
-            anchor: new google.maps.Point(10.5, 38)
+            anchor: new google.maps.Point(21, 38)
           }
        //=====You can even customize the icons here
       });
