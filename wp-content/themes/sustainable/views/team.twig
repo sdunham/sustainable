@@ -9,123 +9,15 @@
 
 			<article id="content-body">
 				<div class="container">
-					<div class="content flex">
-						<div class="left">
-							<h1>driven.<br>
-							dedicated.<br>
-							focused.</h1>
-
-							<p>Dedicated to customer service and being solution oriented, you can be sure that at Sustainable Interiors you will be well taken care of. </p>
-						</div>
-						<div class="right">
-							<p>We pride ourselves in hiring the right people and having those right individuals in the right positions. This ensures excellent customer service and quality workmanship.</p>
-							<p>We have a professional office staff made up of dedicated Business Developers, Project Managers, Project Engineers, and Bookkeepers, as well as an incredible team of technicians.</p>
-						</div>
-					</div><!-- .content -->
+					{% include 'partials/post-content-columns.twig' %}
 				</div><!-- .container -->
 			</article><!-- #content-body -->
 
 			<article id="team-grid">
 				<div class="container">
-
-					<!-- start team image blocks -->
-					<div class="team-block">
-						<div class="image">
-							<img src="{{fn('get_stylesheet_directory_uri')}}/img/team-placeholder-1.jpg" />
-						</div><!-- .image -->
-						<div class="details">
-							<h3 class="name">Dana Pittman</h3>
-							<span class="title">President</span>
-							<a class="ico email" href="mailto:danap@sustainableint.com">danap@sustainableint.com</a><br>
-							<span class="ico phone">(800) 261-9930 x718</span>
-						</div><!-- .details -->
-					</div><!-- .team-block -->
-
-
-					<div class="team-block">
-						<div class="image">
-							<img src="{{fn('get_stylesheet_directory_uri')}}/img/team-placeholder-2.jpg" />
-						</div><!-- .image -->
-						<div class="details">
-							<h3 class="name">Dana Pittman</h3>
-							<span class="title">President</span>
-							<a class="ico email" href="mailto:danap@sustainableint.com">danap@sustainableint.com</a><br>
-							<span class="ico phone">(800) 261-9930 x718</span>
-						</div><!-- .details -->
-					</div><!-- .team-block -->
-
-					<div class="team-block">
-						<div class="image">
-							<img src="{{fn('get_stylesheet_directory_uri')}}/img/team-placeholder-3.jpg" />
-						</div><!-- .image -->
-						<div class="details">
-							<h3 class="name">Dana Pittman</h3>
-							<span class="title">President</span>
-							<a class="ico email" href="mailto:danap@sustainableint.com">danap@sustainableint.com</a><br>
-							<span class="ico phone">(800) 261-9930 x718</span>
-						</div><!-- .details -->
-					</div><!-- .team-block -->
-
-					<div class="team-block">
-						<div class="image">
-							<img src="{{fn('get_stylesheet_directory_uri')}}/img/team-placeholder-4.jpg" />
-						</div><!-- .image -->
-						<div class="details">
-							<h3 class="name">Dana Pittman</h3>
-							<span class="title">President</span>
-							<a class="ico email" href="mailto:danap@sustainableint.com">danap@sustainableint.com</a><br>
-							<span class="ico phone">(800) 261-9930 x718</span>
-						</div><!-- .details -->
-					</div><!-- .team-block -->
-
-					<div class="team-block">
-						<div class="image">
-							<img src="{{fn('get_stylesheet_directory_uri')}}/img/team-placeholder-5.jpg" />
-						</div><!-- .image -->
-						<div class="details">
-							<h3 class="name">Dana Pittman</h3>
-							<span class="title">President</span>
-							<a class="ico email" href="mailto:danap@sustainableint.com">danap@sustainableint.com</a><br>
-							<span class="ico phone">(800) 261-9930 x718</span>
-						</div><!-- .details -->
-					</div><!-- .team-block -->
-
-					<div class="team-block">
-						<div class="image">
-							<img src="{{fn('get_stylesheet_directory_uri')}}/img/team-placeholder-6.jpg" />
-						</div><!-- .image -->
-						<div class="details">
-							<h3 class="name">Dana Pittman</h3>
-							<span class="title">President</span>
-							<a class="ico email" href="mailto:danap@sustainableint.com">danap@sustainableint.com</a><br>
-							<span class="ico phone">(800) 261-9930 x718</span>
-						</div><!-- .details -->
-					</div><!-- .team-block -->
-
-					<div class="team-block">
-						<div class="image">
-							<img src="{{fn('get_stylesheet_directory_uri')}}/img/team-placeholder-7.jpg" />
-						</div><!-- .image -->
-						<div class="details">
-							<h3 class="name">Dana Pittman</h3>
-							<span class="title">President</span>
-							<a class="ico email" href="mailto:danap@sustainableint.com">danap@sustainableint.com</a><br>
-							<span class="ico phone">(800) 261-9930 x718</span>
-						</div><!-- .details -->
-					</div><!-- .team-block -->
-
-					<div class="team-block">
-						<div class="image">
-							<img src="{{fn('get_stylesheet_directory_uri')}}/img/team-placeholder-8.jpg" />
-						</div><!-- .image -->
-						<div class="details">
-							<h3 class="name">Dana Pittman</h3>
-							<span class="title">President</span>
-							<a class="ico email" href="mailto:danap@sustainableint.com">danap@sustainableint.com</a><br>
-							<span class="ico phone">(800) 261-9930 x718</span>
-						</div><!-- .details -->
-					</div><!-- .team-block -->
-
+					{% for team_member in posts %}
+						{% include 'partials/team-member.twig' %}
+					{% endfor %}
 				</div><!-- .container -->
 			</article>
 
