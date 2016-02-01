@@ -247,7 +247,14 @@ class SustainableSite extends TimberSite {
 
 	function add_to_twig( $twig ) {
 		/* this is where you can add your own fuctions to twig */
+		
+		$twig->addFilter('myfoo', new Twig_SimpleFilter('breakspaces', 'string_spaces_to_break_tags'));
+		
 		return $twig;
+	}
+	
+	function string_spaces_to_break_tags($strText){
+		return str_replace(' ', '<br />', $strText);
 	}
 
 }
