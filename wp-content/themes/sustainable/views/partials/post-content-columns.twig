@@ -1,7 +1,10 @@
 {% if content_has_columns %}
 <div class="content flex">
 	<div class="left">
-		{% if post.get_field('secondary_title') %}
+		{% if fn('is_single') %}
+		<h1>{{post.title}}</h1>
+		<span class="small sans green">{{ post.post_date|date}}</span>
+		{% elseif post.get_field('secondary_title') %}
 		<h1>
 			{{post.get_field('secondary_title')}}
 		</h1>
@@ -14,7 +17,10 @@
 </div><!-- .content -->
 {% else %}
 <div class="content">
-	{% if post.get_field('secondary_title') %}
+	{% if fn('is_single') %}
+	<h1>{{post.title}}</h1>
+	<span class="small sans green">{{ post.post_date|date}}</span>
+	{% elseif post.get_field('secondary_title') %}
 	<h1>
 		{{post.get_field('secondary_title')}}
 	</h1>

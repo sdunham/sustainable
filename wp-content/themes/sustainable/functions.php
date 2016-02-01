@@ -12,7 +12,6 @@ Timber::$dirname = array('templates', 'views');
 class SustainableSite extends TimberSite {
 
 	function __construct() {
-		add_theme_support( 'post-formats' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'menus' );
 		add_theme_support( 'title-tag' );
