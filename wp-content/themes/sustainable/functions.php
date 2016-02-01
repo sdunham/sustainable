@@ -15,6 +15,7 @@ class SustainableSite extends TimberSite {
 		add_theme_support( 'post-formats' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'menus' );
+		add_theme_support( 'title-tag' );
 
 		// Register Menus
 		register_nav_menus( array(
