@@ -1,0 +1,16 @@
+{% for post in posts %}
+
+	{% if post_type == 'portfolio-cpt' %}
+		{% set vars = {
+			'id': post.ID,
+			'image_id': post.gallery_images[0],
+			'title': post.title,
+			'subtitle': post.location,
+			'type': 'portfolio'
+		} %}
+		{% include 'partials/grid-item.twig' with vars only %}
+	{% else %}
+		{% include 'partials/tease.twig' %}
+	{% endif %}
+
+{% endfor %}

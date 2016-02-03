@@ -1,6 +1,5 @@
 {% extends "base.twig" %}
 
-{# TODO #}
 {% block content %}
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
@@ -8,7 +7,7 @@
 			{% include 'partials/hero-banner.twig' %}
 
 			<article id="product-grid" class="modal-grid">
-				<div class="container">
+				<div class="container load-more-target">
 					{% for portfolio_item in posts %}
 						{% set vars = {
 							'id': portfolio_item.ID,
@@ -22,12 +21,15 @@
 				</div><!-- .container -->
 			</article><!-- #product-grid -->
 
-			{# TODO #}
-			<article id="callout-block">
+			<script>var intPostsOffsetDefault = {{posts|length}};</script>
+
+			{% if posts|length >= posts_per_page %}
+			<article id="callout-block" class="load-more">
 				<div class="container">
-					<a href="#" class="btn dark white">Load More</a>
+					<a href="#" class="btn dark white" id="load-more-posts" data-posttype="portfolio-cpt">Load More</a>
 				</div><!-- .container -->
 			</article><!-- #callout-block -->
+			{% endif %}
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

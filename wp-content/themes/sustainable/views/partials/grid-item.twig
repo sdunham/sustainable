@@ -5,8 +5,8 @@
 		</div><!-- .image-container -->
 		<div class="details">
 			<h3 class="post-title">{{title}}</h3><!-- .post-title -->
-			{% if subtitle %}
-			<span class="post-location">{{subtitle}}</span>
+			{% if type == 'portfolio'  %}
+			<span class="post-location" style="min-height:16px;">{{(subtitle ? subtitle : ' ')}}</span>
 			{% endif %}
 		</div><!-- .details -->
 	</a>

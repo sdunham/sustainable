@@ -1,4 +1,4 @@
-intPostsOffset = intPostsOffset || 0;
+var intPostsOffset = (typeof intPostsOffsetDefault !== "undefined") ? intPostsOffsetDefault : 0;
 
 jQuery(document).ready(function($){
 
@@ -20,13 +20,19 @@ jQuery(document).ready(function($){
 		.done(function( data ) {
 			var objResponse = $.parseJSON(data);
 			console.log(objResponse);
+
+			$('.load-more-target').append(objResponse.markup);
+
+			if(postType === 'portfolio-cpt'){
+				initPortfolioPopups();
+			}
+
 			if(objResponse.hasMore){
 				intPostsOffset = objResponse.offset;
 			}
 			else{
 				// Remove button
-				// TODO: Replace? Disable?
-				$('#load-more-posts').remove();
+				$('#callout-block.load-more').remove();
 			}
 		});
 	});
@@ -34,32 +40,7 @@ jQuery(document).ready(function($){
 
 	//magnific popup stuff
 	//portfolio popup
-	$('.portfolio-popup-link').magnificPopup({
-		type: 'ajax',
-		removalDelay: 250,
-		mainClass: 'mfp-fade',
-		ajax: {
-			settings: {
-				method: 'POST',
-				url: sustainableIncludes.ajaxurl,
-				data: {
-					action: 'portfolio_popup'
-				}
-			}
-		},
-		callbacks: {
-			elementParse: function(item){
-				var mp = $.magnificPopup.instance;
-				// Get the post id to display
-				mp.st.ajax.settings.data.post_id = $(item.el).data('postid');
-			},
-			ajaxContentAdded: function(){
-				initiateFlexslider();
-
-				$('.mfp-content').addClass('loaded');
-			}
-		}
-	});
+	initPortfolioPopups();
 
 	//product popup
 	$('.product-popup-link').magnificPopup({
@@ -87,18 +68,35 @@ jQuery(document).ready(function($){
 			}
 		}
 	});
-	/*$('.ajax-popup-link').magnificPopup({
-		type: 'ajax',
-		removalDelay: 250,
-		mainClass: 'mfp-fade',
-		callbacks: {
-			ajaxContentAdded: function(){
-				initiateFlexslider();
 
-				$('.mfp-content').addClass('loaded');
+	function initPortfolioPopups(){
+		$('.portfolio-popup-link').magnificPopup({
+			type: 'ajax',
+			removalDelay: 250,
+			mainClass: 'mfp-fade',
+			ajax: {
+				settings: {
+					method: 'POST',
+					url: sustainableIncludes.ajaxurl,
+					data: {
+						action: 'portfolio_popup'
+					}
+				}
+			},
+			callbacks: {
+				elementParse: function(item){
+					var mp = $.magnificPopup.instance;
+					// Get the post id to display
+					mp.st.ajax.settings.data.post_id = $(item.el).data('postid');
+				},
+				ajaxContentAdded: function(){
+					initiateFlexslider();
+
+					$('.mfp-content').addClass('loaded');
+				}
 			}
-		}
-	});*/
+		});
+	}
 
 	function initiateFlexslider(){
 		$('#carousel').flexslider({

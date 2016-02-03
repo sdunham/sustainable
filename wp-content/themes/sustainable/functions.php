@@ -279,6 +279,11 @@ Timber::add_route('posts/get/:offset', function($params){
 	$intOffset = intval($params['offset']);
 	$strPostType = ($_POST['post_type'] ? $_POST['post_type'] : 'post');
     $strQuery = 'posts_per_page='.($intPostsPerPage+1).'&post_type='.$strPostType.'&offset='.($intOffset > 0 ? $intOffset : 0);
+
+    if($strPostType === 'portfolio-cpt'){
+    	$strQuery .= '&orderby=menu_order&order=ASC';
+    }
+
     $arrPosts = Timber::get_posts($strQuery);
 	
 	$blnHasMore = (count($arrPosts) < $intPostsPerPage+1 ? false : true);
@@ -286,11 +291,15 @@ Timber::add_route('posts/get/:offset', function($params){
 	if($blnHasMore){
 		array_pop($arrPosts);
 	}
+
+	$strRet = Timber::compile('partials/ajax-results.twig', array('posts' => $arrPosts, 'post_type' => $strPostType));
 	
 	$arrRet = array(
 		'posts' => $arrPosts,
+		'markup' => $strRet,
 		'hasMore' => $blnHasMore,
-		'offset' => $intOffset + $intPostsPerPage
+		'offset' => $intOffset + $intPostsPerPage,
+		'query' => $strQuery
 	);
 	
 	echo json_encode($arrRet);

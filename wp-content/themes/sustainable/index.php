@@ -23,6 +23,9 @@ $post = new TimberPost();
 $context['post'] = $post;
 
 $context['posts'] = Timber::get_posts();
+
+$context['posts_per_page'] = get_option('posts_per_page');
+
 $templates = array( 'index.twig' );
 if ( is_home() ) {
 	array_unshift( $templates, 'home.twig' );

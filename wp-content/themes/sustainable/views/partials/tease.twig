@@ -1,6 +1,6 @@
 <div class="post-container">
 
-	<article id="post-{{post.ID}}" {{fn('post_class')}}>
+	<article id="post-{{post.ID}}" class="{{post.post_class}}">
 		<a href="{{post.link}}" class="post-anchor">{{post.title}}</a>
 			<div class="featured-image">
 				<div class="image" style="background: url({{post.thumbnail.src('post-block')}}) center center no-repeat; background-size: cover;"></div>
