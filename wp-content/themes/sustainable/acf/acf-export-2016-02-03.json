@@ -188,7 +188,7 @@
                 "label": "Description",
                 "name": "description",
                 "type": "textarea",
-                "instructions": "",
+                "instructions": "Maximum of 750 characters",
                 "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -253,7 +253,7 @@
                 "label": "Gallery Images",
                 "name": "gallery_images",
                 "type": "gallery",
-                "instructions": "",
+                "instructions": "First image will be used in the portfolio page grid, in addition to the popup gallery",
                 "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -468,6 +468,11 @@
                     "param": "page_template",
                     "operator": "==",
                     "value": "default"
+                },
+                {
+                    "param": "page_type",
+                    "operator": "!=",
+                    "value": "posts_page"
                 }
             ]
         ],
@@ -899,6 +904,11 @@
                     "param": "page_template",
                     "operator": "==",
                     "value": "default"
+                },
+                {
+                    "param": "page_type",
+                    "operator": "!=",
+                    "value": "posts_page"
                 }
             ],
             [
@@ -906,6 +916,11 @@
                     "param": "page_template",
                     "operator": "==",
                     "value": "contact.php"
+                },
+                {
+                    "param": "page_type",
+                    "operator": "!=",
+                    "value": "posts_page"
                 }
             ]
         ],
@@ -950,6 +965,11 @@
                     "param": "page_template",
                     "operator": "==",
                     "value": "default"
+                },
+                {
+                    "param": "page_type",
+                    "operator": "!=",
+                    "value": "posts_page"
                 }
             ],
             [
@@ -957,6 +977,11 @@
                     "param": "page_template",
                     "operator": "==",
                     "value": "team.php"
+                },
+                {
+                    "param": "page_type",
+                    "operator": "!=",
+                    "value": "posts_page"
                 }
             ]
         ],
@@ -1172,6 +1197,11 @@
                     "param": "page_template",
                     "operator": "==",
                     "value": "default"
+                },
+                {
+                    "param": "page_type",
+                    "operator": "!=",
+                    "value": "posts_page"
                 }
             ],
             [
@@ -1186,6 +1216,11 @@
                     "param": "page_template",
                     "operator": "==",
                     "value": "team.php"
+                },
+                {
+                    "param": "page_type",
+                    "operator": "!=",
+                    "value": "posts_page"
                 }
             ]
         ],
