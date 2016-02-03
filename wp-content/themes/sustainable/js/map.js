@@ -248,6 +248,7 @@ if (document.getElementById('map-canvas')) {
        //=====You can even customize the icons here
       });
 
+      /*
        //=====Initialise InfoWindow
       var infowindow = new google.maps.InfoWindow({
         // TODO: Confirm this content?
@@ -258,6 +259,7 @@ if (document.getElementById('map-canvas')) {
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.open(map,marker);
     });
+    */
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);
