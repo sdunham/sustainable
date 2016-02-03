@@ -418,7 +418,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p.h1 {
   line-height: 1.1;
   font-family: 'Droid Serif', serif;
   font-weight: 700;
@@ -426,7 +427,8 @@ h6 {
 }
 h1,
 h2,
-h3 {
+h3,
+p.h1 {
   margin: 0 0 20px 0;
 }
 h4,
@@ -434,7 +436,8 @@ h5,
 h6 {
   margin: 0 0 10px 0;
 }
-h1 {
+h1,
+p.h1 {
   font-size: 30px;
 }
 h2 {
@@ -2092,14 +2095,20 @@ header.site-header .header-btns .menu-btn:hover {
   text-align: center;
   vertical-align: middle;
 }
-#hero-banner .caption span {
+#hero-banner .caption span,
+#hero-banner .caption h1 {
   display: block;
 }
-#hero-banner .caption span.main-headline {
+#hero-banner .caption span.main-headline,
+#hero-banner .caption h1.main-headline {
+  margin: 0;
+  color: #fff;
   font-size: 64px;
+  font-weight: normal;
   text-transform: uppercase;
 }
-#hero-banner .caption span.sub-headline {
+#hero-banner .caption span.sub-headline,
+#hero-banner .caption h1.sub-headline {
   margin: 0 auto;
   font-size: 22px;
   max-width: 810px;
@@ -2480,12 +2489,14 @@ header.site-header .header-btns .menu-btn:hover {
 #content-body .content h2,
 #content-body .content h3,
 #content-body .content h4,
-#content-body .content h5 {
+#content-body .content h5,
+#content-body .content p.h1 {
   color: #252525;
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
 }
-#content-body .content h1 {
+#content-body .content h1,
+#content-body .content p.h1 {
   font-size: 42px;
 }
 #content-body .content.flex {

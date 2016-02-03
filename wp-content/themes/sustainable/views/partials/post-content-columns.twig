@@ -5,9 +5,9 @@
 		<h1>{{post.title}}</h1>
 		<span class="small sans green">{{ post.post_date|date}}</span>
 		{% elseif post.get_field('secondary_title') %}
-		<h1>
+		<p class="h1">
 			{{post.get_field('secondary_title')}}
-		</h1>
+		</p>
 		{% endif %}
 		{{content_column_1}}
 	</div>
@@ -21,9 +21,9 @@
 	<h1>{{post.title}}</h1>
 	<span class="small sans green">{{ post.post_date|date}}</span>
 	{% elseif post.get_field('secondary_title') %}
-	<h1>
+	<p class="h1">
 		{{post.get_field('secondary_title')}}
-	</h1>
+	</p>
 	{% endif %}
 	{{post.content}}
 </div>

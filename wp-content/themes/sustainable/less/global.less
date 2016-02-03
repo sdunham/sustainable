@@ -26,17 +26,17 @@ span::selection { background: @color1; }
 // --------------------------------------------------
 // Headings
 // -------------------------
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6, p.h1 {
 	line-height: @headings-line-height;
 	font-family: @font-family-headings;
 	font-weight: @headings-font-weight;
 	color: @headings-color;
 }
 
-h1, h2, h3 { margin: 0 0 @padding-base 0; }
+h1, h2, h3, p.h1 { margin: 0 0 @padding-base 0; }
 h4, h5, h6 { margin: 0 0 @padding-small 0; }
 
-h1{ font-size: @font-size-h1; }
+h1, p.h1 { font-size: @font-size-h1; }
 h2{ font-size: @font-size-h2; }
 h3{ font-size: @font-size-h3; }
 h4{ font-size: @font-size-h4; }
