@@ -3,7 +3,7 @@
 	<div class="left">
 		{% if fn('is_single') %}
 		<h1>{{post.title}}</h1>
-		<span class="small sans green">{{ post.post_date|date}}</span>
+		<span class="post-meta-date">{{ post.post_date|date}}</span>
 		{% elseif post.get_field('secondary_title') %}
 		<p class="h1">
 			{{post.get_field('secondary_title')}}
