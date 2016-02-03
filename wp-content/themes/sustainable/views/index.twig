@@ -6,16 +6,17 @@
 			
 			{% include 'partials/hero-banner.twig' %}
 
-			{# TODO: Might need to tweak this? #}
-			<article id="post-grid">
-				{% for post_tease in posts %}
-					{% include 'partials/home-post-block.twig' %}
+			<article id="content-body" class="blog">
+				{% for post in posts %}
+					{% include 'partials/tease.twig' %}
 				{% endfor %}
-			</article><!-- #post-grid -->
+			</article><!-- #content-body -->
+			
+			<script>intPostsOffset = {{posts|length}};</script>
 
 			<article id="callout-block">
 				<div class="container">
-					<a href="#" class="btn dark white">Load More</a>
+					<a href="#" class="btn dark white" id="load-more-posts" data-posttype="post">Load More</a>
 				</div><!-- .container -->
 			</article><!-- #callout-block -->
 

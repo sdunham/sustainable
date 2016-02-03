@@ -76,7 +76,10 @@ class SustainableSite extends TimberSite {
 		wp_enqueue_script( 'sustainable-interiors-common', get_template_directory_uri() . '/js/sus-common.js', array(), '', true );
 
 		// sus-common.js localization
-		wp_localize_script( 'sustainable-interiors-common', 'sustainableIncludes', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+		wp_localize_script( 'sustainable-interiors-common', 'sustainableIncludes', array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			'siteurl' => home_url('/')
+		) );
 		//
 		wp_localize_script( 'map', 'mapIncludes', array( 'markericon' => get_template_directory_uri() . '/img/marker@2x.png' ) );
 
@@ -262,7 +265,6 @@ class SustainableSite extends TimberSite {
 new SustainableSite();
 
 if( function_exists('acf_add_options_page') ) {
-	
 	acf_add_options_page(array(
 		'page_title' 	=> 'General Theme Settings',
 		'menu_title'	=> 'Theme Settings',
@@ -270,5 +272,27 @@ if( function_exists('acf_add_options_page') ) {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
-	
 }
+
+Timber::add_route('posts/get/:offset', function($params){
+	$intPostsPerPage = intval(get_option('posts_per_page'));
+	$intOffset = intval($params['offset']);
+	$strPostType = ($_POST['post_type'] ? $_POST['post_type'] : 'post');
+    $strQuery = 'posts_per_page='.($intPostsPerPage+1).'&post_type='.$strPostType.'&offset='.($intOffset > 0 ? $intOffset : 0);
+    $arrPosts = Timber::get_posts($strQuery);
+	
+	$blnHasMore = (count($arrPosts) < $intPostsPerPage+1 ? false : true);
+	// Remove the last post if we got the number of posts we asked for
+	if($blnHasMore){
+		array_pop($arrPosts);
+	}
+	
+	$arrRet = array(
+		'posts' => $arrPosts,
+		'hasMore' => $blnHasMore,
+		'offset' => $intOffset + $intPostsPerPage
+	);
+	
+	echo json_encode($arrRet);
+	exit;
+});

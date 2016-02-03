@@ -1,9 +1,34 @@
+intPostsOffset = intPostsOffset || 0;
+
 jQuery(document).ready(function($){
 
 	//scroll to top functionality
 	$(".scroll-top").click(function() {
 	  $("html, body").animate({ scrollTop: 0 });
 	  return false;
+	});
+	
+	$('#load-more-posts').click(function(e){
+		e.preventDefault();
+		var postType = $(this).data('posttype');
+		
+		$.ajax({
+			method: 'POST',
+			url: sustainableIncludes.siteurl + 'posts/get/' + intPostsOffset,
+			data: { post_type: postType }
+		})
+		.done(function( data ) {
+			var objResponse = $.parseJSON(data);
+			console.log(objResponse);
+			if(objResponse.hasMore){
+				intPostsOffset = objResponse.offset;
+			}
+			else{
+				// Remove button
+				// TODO: Replace? Disable?
+				$('#load-more-posts').remove();
+			}
+		});
 	});
 
 

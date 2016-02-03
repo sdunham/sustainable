@@ -1,10 +1,27 @@
-{# TODO #}
-<article class="tease tease-{{post.post_type}}" id="tease-{{post.ID}}">
-	{% block content %}
-		<h2 class="h2"><a href="{{post.link}}">{{post.title}}</a></h2>
-		<p>{{post.get_preview}}</p>
-		{% if post.get_thumbnail %}
-			<img src="{{post.thumbnail.src}}" />
-		{% endif %}
-	{% endblock %}
-</article>
+<div class="post-container">
+
+	<article id="post-{{post.ID}}" {{fn('post_class')}}>
+		<a href="{{post.link}}" class="post-anchor">{{post.title}}</a>
+			<div class="featured-image">
+				<div class="image" style="background: url({{post.thumbnail.src('post-block')}}) center center no-repeat; background-size: cover;"></div>
+			</div><!-- .featured-image -->
+			<div class="post-content">
+				<div class="content-wrap">
+					<header class="entry-header">
+						<h2 class="entry-title">{{post.title}}</h2>
+						<div class="entry-meta">
+							<span class="date">{{post.post_date|date}}</span>
+						</div><!-- .entry-meta -->
+					</header><!-- .entry-header -->
+
+					<div class="entry-content">
+							{{post.get_preview(25, true, false)}}
+							<br>
+							<span class="fancy">Read More</span>
+						</div><!-- .content-wrap -->
+					</div><!-- .entry-content -->
+				</div><!-- .post-content -->
+
+	</article><!-- #post-## -->
+
+</div><!-- .post-container -->
