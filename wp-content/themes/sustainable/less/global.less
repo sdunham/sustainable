@@ -12,6 +12,15 @@ body{
 				}//@devices
 		}//.logged-in
 }
+a::-moz-selection,
+h1::-moz-selection,
+h2::-moz-selection,
+h3::-moz-selection,
+h4::-moz-selection,
+h5::-moz-selection,
+h6::-moz-selection,
+p::-moz-selection,
+span::-moz-selection { background: #dfeae3; }
 
 a::selection,
 h1::selection,
@@ -21,7 +30,7 @@ h4::selection,
 h5::selection,
 h6::selection,
 p::selection,
-span::selection { background: @color1; }
+span::selection { background: #dfeae3; }
 
 // --------------------------------------------------
 // Headings
@@ -48,7 +57,7 @@ a {
   text-decoration: none;
   .transition(all @trans-speed ease);
 
-		&:hover{ text-decoration: underline; }
+		&:hover{ text-decoration: underline; color: #355a0c; }
 
 		img{ border: 0; }
 }//a

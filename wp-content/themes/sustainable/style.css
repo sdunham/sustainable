@@ -402,6 +402,17 @@ body.logged-in header.site-header {
     top: 0;
   }
 }
+a::-moz-selection,
+h1::-moz-selection,
+h2::-moz-selection,
+h3::-moz-selection,
+h4::-moz-selection,
+h5::-moz-selection,
+h6::-moz-selection,
+p::-moz-selection,
+span::-moz-selection {
+  background: #dfeae3;
+}
 a::selection,
 h1::selection,
 h2::selection,
@@ -411,7 +422,7 @@ h5::selection,
 h6::selection,
 p::selection,
 span::selection {
-  background: #aecbba;
+  background: #dfeae3;
 }
 h1,
 h2,
@@ -456,13 +467,14 @@ h6 {
   font-size: 16px;
 }
 a {
-  color: #aecbba;
+  color: #598c6e;
   text-decoration: none;
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
 a:hover {
   text-decoration: underline;
+  color: #355a0c;
 }
 a img {
   border: 0;
@@ -1250,6 +1262,7 @@ header.site-header .header-btns .menu-btn:hover {
     float: none;
     margin: 0 auto;
     text-align: center;
+    padding: 7px 20px 9px;
   }
 }
 .main-navigation {
@@ -1316,6 +1329,8 @@ header.site-header .header-btns .menu-btn:hover {
   visibility: hidden;
   margin-left: -18px;
   position: absolute;
+  border: 1px solid #dfeae3;
+  border-top: none;
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
   z-index: 510;
@@ -1335,7 +1350,6 @@ header.site-header .header-btns .menu-btn:hover {
 .main-navigation ul > li > ul > li a {
   color: #111;
   text-align: left;
-  font-weight: 400;
   padding: 8px 20px;
   display: inline-block;
 }
@@ -1399,6 +1413,7 @@ header.site-header .header-btns .menu-btn:hover {
   }
   .main-navigation ul {
     float: none;
+    border: none;
     background: #252525;
   }
   .main-navigation ul > li {
@@ -1424,6 +1439,7 @@ header.site-header .header-btns .menu-btn:hover {
     width: 100%;
     opacity: 1;
     filter: alpha(opacity=100);
+    border: none;
     position: relative;
     visibility: visible;
     background: none !important;
@@ -1453,12 +1469,18 @@ header.site-header .header-btns .menu-btn:hover {
   .main-navigation:after {
     width: 100%;
   }
+  .main-navigation ul {
+    border: none;
+  }
   .main-navigation ul li {
     text-align: center;
   }
   .main-navigation ul li a {
     font-size: 36px;
     text-align: center;
+  }
+  .main-navigation ul li ul {
+    border: none;
   }
   .main-navigation ul li ul li a {
     width: 100%;
@@ -1526,6 +1548,12 @@ header.site-header .header-btns .menu-btn:hover {
   font-size: 64px;
   text-transform: uppercase;
 }
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+  #hero .flexslider .slides li .container .caption span.main-headline {
+    max-width: 85%;
+    margin: 0 auto 5px;
+  }
+}
 #hero .flexslider .slides li .container .caption span.sub-headline {
   font-size: 22px;
   max-width: 700px;
@@ -1577,6 +1605,9 @@ header.site-header .header-btns .menu-btn:hover {
   opacity: 1;
   filter: alpha(opacity=100);
 }
+#hero .flexslider .flex-direction-nav li a.flex-disabled {
+  display: none !important;
+}
 #hero .flexslider .flex-direction-nav li.flex-nav-prev {
   left: 50px;
 }
@@ -1626,8 +1657,10 @@ header.site-header .header-btns .menu-btn:hover {
   transition: all 0.25s ease;
   background: rgba(255, 255, 255, 0.5);
 }
-#hero .flexslider .flex-control-paging li a.flex-active:before,
 #hero .flexslider .flex-control-paging li a:hover:before {
+  background: #fff;
+}
+#hero .flexslider .flex-control-paging li a.flex-active:before {
   background: #aecbba;
 }
 #hero .flexslider:hover .flex-direction-nav a {
@@ -1776,6 +1809,9 @@ header.site-header .header-btns .menu-btn:hover {
 }
 #post-grid .post-block a .post-meta {
   color: #464646;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 #post-grid .post-block a:hover {
   text-decoration: none;
@@ -1812,7 +1848,10 @@ header.site-header .header-btns .menu-btn:hover {
 #post-grid .post-block .details h2.post-title {
   font-size: 36px;
   font-weight: 300;
+  overflow: hidden;
   margin-bottom: 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 #post-grid .post-block .details .post-meta {
   display: block;
@@ -1884,11 +1923,12 @@ header.site-header .header-btns .menu-btn:hover {
   }
   #post-grid .post-block .image-container {
     height: auto;
-    min-height: 150px;
+    min-height: 250px;
   }
   #post-grid .post-block .image-container .image {
     height: auto;
-    padding-top: 37.5%;
+    padding-top: 0;
+    min-height: 250px;
   }
 }
 #testimonials {
@@ -1900,6 +1940,7 @@ header.site-header .header-btns .menu-btn:hover {
 #testimonials h3.title {
   color: #252525;
   font-weight: 700;
+  margin-bottom: 14px;
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
 }
@@ -2013,6 +2054,9 @@ header.site-header .header-btns .menu-btn:hover {
   opacity: 1;
   filter: alpha(opacity=100);
 }
+#testimonials .flexslider .flex-direction-nav li a.flex-disabled {
+  display: none !important;
+}
 #testimonials .flexslider .flex-direction-nav li.flex-nav-prev {
   left: 75px;
 }
@@ -2104,6 +2148,8 @@ header.site-header .header-btns .menu-btn:hover {
   margin: 0;
   color: #fff;
   font-size: 64px;
+  line-height: 120%;
+  margin-bottom: 20px;
   font-weight: normal;
   text-transform: uppercase;
 }
@@ -2120,6 +2166,7 @@ header.site-header .header-btns .menu-btn:hover {
   #hero-banner .caption {
     top: 0 !important;
   }
+  #hero-banner .caption h1.main-headline,
   #hero-banner .caption span.main-headline {
     font-size: 52px;
   }
@@ -2128,6 +2175,7 @@ header.site-header .header-btns .menu-btn:hover {
   }
 }
 @media only screen and (min-width: 530px) and (max-width: 767px), only screen and (max-width: 529px) {
+  #hero-banner .caption h1.main-headline,
   #hero-banner .caption span.main-headline {
     font-size: 40px;
   }
@@ -2218,7 +2266,7 @@ header.site-header .header-btns .menu-btn:hover {
 #team-grid .container .team-block .details h3 {
   font-size: 24px;
   font-weight: 400;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   color: #252525;
 }
 #team-grid .container .team-block .details .title {
@@ -2235,7 +2283,6 @@ header.site-header .header-btns .menu-btn:hover {
   color: #598c6e;
 }
 #team-grid .container .team-block .details .ico {
-  margin-bottom: 2px;
   display: inline-block;
 }
 #team-grid .container .team-block .details .ico:before {
@@ -2248,12 +2295,15 @@ header.site-header .header-btns .menu-btn:hover {
   background: url(img/team-sprite@2x.png) 0 0 no-repeat;
   background-size: 18px 40px;
 }
+#team-grid .container .team-block .details .ico.email:hover {
+  color: #355a0c;
+}
 #team-grid .container .team-block .details .ico.email:before {
   margin-top: 3px;
+  background-position: 0 2px;
 }
 #team-grid .container .team-block .details .ico.phone:before {
-  margin-top: -1px;
-  background-position: 0 -20px;
+  background-position: 1px -21px;
 }
 #content-body.map {
   display: flex;
@@ -2287,6 +2337,9 @@ header.site-header .header-btns .menu-btn:hover {
   font-weight: bold;
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
+}
+#content-body.map .location-rte a {
+  color: #252525;
 }
 #content-body.map .location-rte .serif {
   font-family: 'Droid Serif', serif;
@@ -2362,6 +2415,9 @@ header.site-header .header-btns .menu-btn:hover {
 .modal-grid .modal-block a:hover {
   text-decoration: none;
 }
+.modal-grid .modal-block a:focus {
+  outline: none;
+}
 .modal-grid .modal-block .image-container {
   height: 275px;
   overflow: hidden;
@@ -2393,7 +2449,7 @@ header.site-header .header-btns .menu-btn:hover {
 }
 .modal-grid .modal-block .details h3.post-title {
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 5px;
 }
 .modal-grid .modal-block .details .post-meta,
@@ -2406,6 +2462,7 @@ header.site-header .header-btns .menu-btn:hover {
 }
 .modal-grid .modal-block .details .post-location {
   color: #598c6e;
+  margin-bottom: 0;
   text-transform: uppercase;
 }
 .modal-grid .modal-block .details .excerpt {
@@ -2498,6 +2555,8 @@ header.site-header .header-btns .menu-btn:hover {
 #content-body .content h1,
 #content-body .content p.h1 {
   font-size: 42px;
+  line-height: 120%;
+  margin-bottom: 10px;
 }
 #content-body .content.flex {
   display: flex;
@@ -2525,6 +2584,9 @@ header.site-header .header-btns .menu-btn:hover {
     font-size: 36px;
   }
 }
+#content-body.post-type-post .container {
+  padding: 0 20px;
+}
 footer.site-footer .site-info {
   color: #fff;
   padding: 30px 0;
@@ -2537,6 +2599,7 @@ footer.site-footer .site-info h4 {
   color: #fff;
   font-size: 17px;
   font-weight: 600;
+  margin-bottom: 15px;
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
 }
@@ -2653,6 +2716,7 @@ footer.site-footer .legal .scroll-top:hover span:after {
     background: black;
   }
   footer.site-footer .legal .container .scroll-top span {
+    left: 0;
     top: 50%;
     right: -36px;
     margin-top: -10px;
@@ -2661,8 +2725,11 @@ footer.site-footer .legal .scroll-top:hover span:after {
 }
 .post-meta-date {
   color: #464646;
+  display: block;
   font-size: 12px;
   font-weight: bold;
+  margin-top: -5px;
+  margin-bottom: 20px;
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
 }
@@ -2789,7 +2856,7 @@ footer.site-footer .legal .scroll-top:hover span:after {
   margin: 0;
 }
 .post-container {
-  background: #fff;
+  background: #f2f2f2;
 }
 .post-container:nth-of-type(even) {
   background: #dfeae3;
@@ -2846,6 +2913,8 @@ footer.site-footer .legal .scroll-top:hover span:after {
   padding: 40px 50px;
 }
 .post-container .hentry .post-content .entry-header .entry-title {
+  font-size: 36px;
+  margin-bottom: 5px;
   color: #252525;
   font-weight: normal;
 }
@@ -2862,6 +2931,9 @@ footer.site-footer .legal .scroll-top:hover span:after {
 .post-container .hentry .post-content .entry-content {
   padding: 0;
   line-height: 160%;
+}
+.post-container .hentry:hover {
+  background: #fff;
 }
 .post-container .hentry:hover .featured-image .image {
   -webkit-transform: scale(2);
@@ -3232,8 +3304,8 @@ html[xmlns] .flexslider .slides {
   background: #fff;
   display: inline-block;
   vertical-align: middle;
-  -webkit-box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.26);
-  box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.26);
+  -webkit-box-shadow: 0 0 10px 7px rgba(0, 0, 0, 0.26);
+  box-shadow: 0 0 10px 7px rgba(0, 0, 0, 0.26);
 }
 .mfp-inline-holder .mfp-content,
 .mfp-ajax-holder .mfp-content {
@@ -3721,8 +3793,8 @@ img.mfp-img {
   -moz-user-select: none;
   cursor: pointer;
   display: block;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacity: 0.3;
+  filter: alpha(opacity=30);
 }
 .mfp-content #carousel li img:hover {
   opacity: 1;
@@ -3795,6 +3867,11 @@ img.mfp-img {
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
+@media only screen and (max-width: 529px) {
+  .mfp-content #carousel {
+    display: none;
+  }
+}
 .mfp-content #product_popup_wrapper {
   display: flex;
 }
@@ -3803,12 +3880,24 @@ img.mfp-img {
 }
 .mfp-content #product_popup_wrapper .flex-box .product-info {
   padding: 40px 50px;
+  min-height: 350px;
 }
 .mfp-content #product_popup_wrapper .flex-box .product-info h3 {
   color: #252525;
   font-size: 36px;
   font-weight: 400;
   margin-bottom: 10px;
+}
+@media only screen and (min-width: 530px) and (max-width: 767px), only screen and (max-width: 529px) {
+  .mfp-content #product_popup_wrapper .flex-box .product-info {
+    padding: 40px 30px;
+    min-height: auto;
+  }
+}
+@media only screen and (max-width: 529px) {
+  .mfp-content #product_popup_wrapper .flex-box .product-info {
+    padding: 30px 20px;
+  }
 }
 .mfp-content #product_popup_wrapper .product-image {
   flex: 1;
@@ -3832,16 +3921,20 @@ img.mfp-img {
   filter: alpha(opacity=100);
 }
 @media only screen and (min-width: 1200px), only screen and (min-width: 1024px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 1023px) {
+  .legal,
   #testimonials h3.title,
   #company-information h3.title,
   .main-navigation ul > li > a,
-  #post-grid .post-block .details h2.post-title {
+  #content-body.map .location-rte .sans,
+  #post-grid .post-block .details h2.post-title,
+  .post-container .hentry .post-content .entry-header .entry-meta {
     letter-spacing: 1px;
   }
   #callout-block h2,
   #company-information h1,
   footer.site-footer .site-info h4,
   #hero-banner .caption span.main-headline,
+  #hero-banner .caption h1.main-headline,
   #hero .flexslider .slides li .container .caption span.main-headline {
     letter-spacing: 2px;
   }
@@ -4060,5 +4153,10 @@ img.mfp-img {
 @media only screen and (min-width: 768px) and (max-width: 1023px), only screen and (min-width: 530px) and (max-width: 767px), only screen and (max-width: 529px) {
   #page {
     padding-top: 0;
+  }
+}
+@media only screen and (min-width: 530px) and (max-width: 767px), only screen and (max-width: 529px) {
+  #wpadminbar {
+    position: fixed !important;
   }
 }

@@ -7,11 +7,11 @@ jQuery(document).ready(function($){
 	  $("html, body").animate({ scrollTop: 0 });
 	  return false;
 	});
-	
+
 	$('#load-more-posts').click(function(e){
 		e.preventDefault();
 		var postType = $(this).data('posttype');
-		
+
 		$.ajax({
 			method: 'POST',
 			url: sustainableIncludes.siteurl + 'posts/get/' + intPostsOffset,
@@ -125,10 +125,10 @@ jQuery(document).ready(function($){
   var $flexslider = $('#hero .flexslider');
    $flexslider.flexslider({
      initDelay: 0,
+		 animation: "fade",
 		 pauseOnHover: false,
-     animation: "fade",
+		 animationLoop: false,
      slideshowSpeed: 7000,
-     animationLoop: true,
      manualControls: ".flex-control-nav li",
      useCSS: false,
      start: function(slider){
@@ -162,7 +162,7 @@ jQuery(document).ready(function($){
 	//testimonial carousel
 	$('#testimonials .flexslider').flexslider({
     animation: "slide",
-    animationLoop: true,
+    animationLoop: false,
 		controlNav: false,
 		directionNav: true,
     itemWidth: 1300,

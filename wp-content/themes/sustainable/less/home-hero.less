@@ -51,6 +51,11 @@
                             &.main-headline {
                               font-size: 64px;
                               text-transform: uppercase;
+
+                                @media @desktop-sml {
+                                  max-width: 85%;
+                                  margin: 0 auto 5px;
+                                }//@desktop-sml
                             }//.main-headline
 
                             &.sub-headline {
@@ -106,6 +111,8 @@
                     &:hover {
                       &:after { .opacity(1); }
                     }//:hover
+
+                    &.flex-disabled { display: none !important; }
                 }//a
 
                 &.flex-nav-prev { left: 50px; }//.flex-nav-prev
@@ -160,7 +167,11 @@
                       background: rgba(255, 255, 255, .5);
                     }//:before
 
-                    &.flex-active, &:hover {
+                    &:hover {
+                      &:before { background: @white; }
+                    }//:hover
+
+                    &.flex-active {
                       &:before { background: @color1; }
                     }//.flex-active
                 }//a

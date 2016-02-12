@@ -7,6 +7,7 @@
     h3.title {
       color: #252525;
       font-weight: 700;
+      margin-bottom: 14px;
       text-transform: uppercase;
       font-family: @font-family-opensans;
     }//.title
@@ -120,6 +121,8 @@
                     &:hover {
                       &:after { .opacity(1); }
                     }//:hover
+
+                    &.flex-disabled { display: none !important; }
                 }//a
 
                 &.flex-nav-prev { left: 75px; }//.flex-nav-prev

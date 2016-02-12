@@ -34,7 +34,7 @@
                 h3 {
                   font-size: 24px;
                   font-weight: 400;
-                  margin-bottom: 5px;
+                  margin-bottom: 2px;
                   color: @text-color;
                 }//h3
 
@@ -52,7 +52,7 @@
                 a { color: #598c6e; }
 
                 .ico {
-                  margin-bottom: 2px;
+                  //margin-bottom: 2px;
                   display: inline-block;
 
                     &:before {
@@ -67,15 +67,17 @@
                     }//:before
 
                       &.email {
+                        &:hover { color: #355a0c; }
                         &:before {
                           margin-top: 3px;
+                          background-position: 0 2px;
                         }//:before
                       }//.email
 
                       &.phone {
                         &:before {
-                          margin-top: -1px;
-                          background-position: 0 -20px;
+                          //margin-top: -1px;
+                          background-position: 1px -21px;
                         }//:before
                       }//.phone
                 }//.ico
