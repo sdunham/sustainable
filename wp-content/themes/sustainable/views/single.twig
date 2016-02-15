@@ -4,7 +4,7 @@
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 		
-			{% include 'partials/hero-banner.twig' with {'post': news_page} only %}
+			{% include 'partials/hero-banner.twig' with {'post': news_page, 'hero_image': post.thumbnail.ID} only %}
 		
 			<article id="content-body" class="post-type-{{post.post_type}} post-{{post.ID}}">
 				<div class="container">
