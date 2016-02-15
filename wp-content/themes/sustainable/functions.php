@@ -32,7 +32,7 @@ class SustainableSite extends TimberSite {
 		add_image_size( 'interior-team', 275, 275, true );
 		add_image_size( 'interior-grid', 575, 275, true );
 		add_image_size( 'interior-product', 490, 505, true );
-		add_image_size( 'interior-portfolio-slider', 975, 555, true );
+		add_image_size( 'interior-portfolio-slider', 975, 500, true );
 		add_image_size( 'interior-portfolio-carousel', 180, 105, true );
 		//RTE Image Sizes
 		add_image_size( 'small', 230, 230, true );
