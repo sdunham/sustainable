@@ -2,5 +2,5 @@
 	<p class="testimonial">“{{testimonial.quote}}”</p>
 	<span>{{testimonial.name}}</span>
 	<span class="pipe">|</span>
-	<a {{testimonial.company_url ? 'href="'~testimonial.company_url~'"' : ''}}>{{testimonial.company}}</a>
+	<a {{testimonial.company_url ? 'href="'~testimonial.company_url~'" target="_blank"' : ''}}>{{testimonial.company}}</a>
 </li>
