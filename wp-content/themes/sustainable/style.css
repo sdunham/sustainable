@@ -1262,7 +1262,11 @@ header.site-header .header-btns .menu-btn:hover {
     float: none;
     margin: 0 auto;
     text-align: center;
-    padding: 7px 20px 9px;
+  }
+  header.site-header .header-btns a.menu-btn,
+  header.site-header .header-btns a.contact-btn {
+    color: #fff;
+    padding: padding: 7px 20px 9px;
   }
 }
 .main-navigation {
