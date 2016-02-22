@@ -305,3 +305,15 @@ Timber::add_route('posts/get/:offset', function($params){
 	echo json_encode($arrRet);
 	exit;
 });
+
+function my_login_logo() { ?>
+    <style type="text/css">
+        .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/logo_login_page@2x.png);
+            background-size: 295px 58px;
+			width: 295px;
+			height: 58px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
