@@ -89,6 +89,7 @@ class SustainableSite extends TimberSite {
 		}
 	}
 
+
 	// Render the portfolio popup for the given post
 	function render_portfolio_popup(){
 		$intPostId = intval($_POST['post_id']);
@@ -146,7 +147,7 @@ class SustainableSite extends TimberSite {
 
 		register_post_type( 'portfolio-cpt', $args );
 	}
-	
+
 	/**
 	 * Register a product post type.
 	 *
@@ -188,7 +189,7 @@ class SustainableSite extends TimberSite {
 
 		register_post_type( 'product-cpt', $args );
 	}
-	
+
 	/**
 	 * Register a team member post type.
 	 *
@@ -250,12 +251,12 @@ class SustainableSite extends TimberSite {
 
 	function add_to_twig( $twig ) {
 		/* this is where you can add your own fuctions to twig */
-		
+
 		$twig->addFilter('myfoo', new Twig_SimpleFilter('breakspaces', 'string_spaces_to_break_tags'));
-		
+
 		return $twig;
 	}
-	
+
 	function string_spaces_to_break_tags($strText){
 		return str_replace(' ', '<br />', $strText);
 	}
@@ -285,7 +286,7 @@ Timber::add_route('posts/get/:offset', function($params){
     }
 
     $arrPosts = Timber::get_posts($strQuery);
-	
+
 	$blnHasMore = (count($arrPosts) < $intPostsPerPage+1 ? false : true);
 	// Remove the last post if we got the number of posts we asked for
 	if($blnHasMore){
@@ -293,7 +294,7 @@ Timber::add_route('posts/get/:offset', function($params){
 	}
 
 	$strRet = Timber::compile('partials/ajax-results.twig', array('posts' => $arrPosts, 'post_type' => $strPostType));
-	
+
 	$arrRet = array(
 		'posts' => $arrPosts,
 		'markup' => $strRet,
@@ -301,7 +302,7 @@ Timber::add_route('posts/get/:offset', function($params){
 		'offset' => $intOffset + $intPostsPerPage,
 		'query' => $strQuery
 	);
-	
+
 	echo json_encode($arrRet);
 	exit;
 });
