@@ -3237,9 +3237,6 @@ footer.site-footer .legal .scroll-top:hover span:after {
 .flexslider .slides img {
   width: 100%;
   display: block;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
 }
 .flexslider .slides:after {
   content: "";
@@ -3860,9 +3857,6 @@ img.mfp-img {
 .mfp-content #carousel .flex-direction-nav li a:hover:after {
   opacity: 1;
   filter: alpha(opacity=100);
-}
-.mfp-content #carousel .flex-direction-nav li a.flex-disabled {
-  display: none;
 }
 .mfp-content #carousel .flex-direction-nav li.flex-nav-prev {
   left: 25px;
